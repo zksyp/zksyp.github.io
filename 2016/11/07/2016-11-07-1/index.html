@@ -8,15 +8,25 @@
   <link rel="dns-prefetch" href="http://zksyp.me">
   <title>Zksyp的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="普通Android搬砖工一枚">
-<meta property="og:type" content="website">
+  <meta name="description" content="title: View的绘制流程探索从setContentView说起如题，探索View的绘制流程，我们从大家最容易想到的方法setContentView()入手。setContentView(int layoutResID)方法是把我们在xml文件里画好的布局呈现在窗口中的纽带。进到该方法内，提示链接到Activity 的setContentView方法，最后我们可以看到：
+1234publi">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Zksyp的博客">
-<meta property="og:url" content="http://zksyp.me/index.html">
+<meta property="og:url" content="http://zksyp.me/2016/11/07/2016-11-07-1/index.html">
 <meta property="og:site_name" content="Zksyp的博客">
-<meta property="og:description" content="普通Android搬砖工一枚">
+<meta property="og:description" content="title: View的绘制流程探索从setContentView说起如题，探索View的绘制流程，我们从大家最容易想到的方法setContentView()入手。setContentView(int layoutResID)方法是把我们在xml文件里画好的布局呈现在窗口中的纽带。进到该方法内，提示链接到Activity 的setContentView方法，最后我们可以看到：
+1234publi">
+<meta property="og:image" content="http://og407vfi8.bkt.clouddn.com/14785059352930.jpg">
+<meta property="og:image" content="http://og407vfi8.bkt.clouddn.com/14785095066417.jpg">
+<meta property="og:image" content="http://og407vfi8.bkt.clouddn.com/14791232890128.jpg">
+<meta property="og:image" content="http://og407vfi8.bkt.clouddn.com/14803500905009.jpg">
+<meta property="og:image" content="http://og407vfi8.bkt.clouddn.com/14802635537295.jpg">
+<meta property="og:updated_time" content="2016-12-12T08:43:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Zksyp的博客">
-<meta name="twitter:description" content="普通Android搬砖工一枚">
+<meta name="twitter:description" content="title: View的绘制流程探索从setContentView说起如题，探索View的绘制流程，我们从大家最容易想到的方法setContentView()入手。setContentView(int layoutResID)方法是把我们在xml文件里画好的布局呈现在窗口中的纽带。进到该方法内，提示链接到Activity 的setContentView方法，最后我们可以看到：
+1234publi">
+<meta name="twitter:image" content="http://og407vfi8.bkt.clouddn.com/14785059352930.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Zksyp的博客" type="application/atom+xml">
   
@@ -133,9 +143,7 @@
 </nav>
 
       <div class="body-wrap">
-        
-  
-    <article id="post-2016-11-07-1" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-2016-11-07-1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -232,17 +240,54 @@
   </div>
 </article>
 
-
-
-
-
-
-
-
-
-
   
-  
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2016-11-07-1" data-title="" data-url="http://zksyp.me/2016/11/07/2016-11-07-1/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"zksyp-hexo"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 
 
       </div>
@@ -264,8 +309,8 @@
 		fancybox: true,
 		mathjax: false,
 		animate: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
