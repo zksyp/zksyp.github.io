@@ -8,20 +8,20 @@
   <link rel="dns-prefetch" href="http://zksyp.me">
   <title>Java设计模式——观察者模式 | Zksyp的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="##写在前面在RxJava的学习当中，RxJava使用的是观察者模式，这里就简单的介绍一下观察者模式。
-什么是观察者模式观察者模式中主要有两种角色，观察者和被观察者。类似于订阅报纸，你的角色是订阅者(Observer)，出版商是发行报纸的一方，他的角色就是被订阅者(Subject)，而这两者的共同组合就是观察者模式。观察者模式数据流转：被观察者也就是被订阅者的数据发生了更新动作，所有订阅了的观察者">
+  <meta name="description" content="在RxJava的学习当中，RxJava使用的是观察者模式，这里就简单的介绍一下观察者模式。
+什么是观察者模式观察者模式中主要有两种角色，观察者和被观察者。类似于订阅报纸，你的角色是订阅者(Observer)，出版商是发行报纸的一方，他的角色就是被订阅者(Subject)，而这两者的共同组合就是观察者模式。观察者模式数据流转：被观察者也就是被订阅者的数据发生了更新动作，所有订阅了的观察者都能够收到这">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java设计模式——观察者模式">
 <meta property="og:url" content="http://zksyp.me/2016/11/25/2016-12-13/index.html">
 <meta property="og:site_name" content="Zksyp的博客">
-<meta property="og:description" content="##写在前面在RxJava的学习当中，RxJava使用的是观察者模式，这里就简单的介绍一下观察者模式。
-什么是观察者模式观察者模式中主要有两种角色，观察者和被观察者。类似于订阅报纸，你的角色是订阅者(Observer)，出版商是发行报纸的一方，他的角色就是被订阅者(Subject)，而这两者的共同组合就是观察者模式。观察者模式数据流转：被观察者也就是被订阅者的数据发生了更新动作，所有订阅了的观察者">
+<meta property="og:description" content="在RxJava的学习当中，RxJava使用的是观察者模式，这里就简单的介绍一下观察者模式。
+什么是观察者模式观察者模式中主要有两种角色，观察者和被观察者。类似于订阅报纸，你的角色是订阅者(Observer)，出版商是发行报纸的一方，他的角色就是被订阅者(Subject)，而这两者的共同组合就是观察者模式。观察者模式数据流转：被观察者也就是被订阅者的数据发生了更新动作，所有订阅了的观察者都能够收到这">
 <meta property="og:image" content="http://og407vfi8.bkt.clouddn.com/14816169269167.jpg">
-<meta property="og:updated_time" content="2016-12-13T12:20:32.000Z">
+<meta property="og:updated_time" content="2016-12-13T12:22:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java设计模式——观察者模式">
-<meta name="twitter:description" content="##写在前面在RxJava的学习当中，RxJava使用的是观察者模式，这里就简单的介绍一下观察者模式。
-什么是观察者模式观察者模式中主要有两种角色，观察者和被观察者。类似于订阅报纸，你的角色是订阅者(Observer)，出版商是发行报纸的一方，他的角色就是被订阅者(Subject)，而这两者的共同组合就是观察者模式。观察者模式数据流转：被观察者也就是被订阅者的数据发生了更新动作，所有订阅了的观察者">
+<meta name="twitter:description" content="在RxJava的学习当中，RxJava使用的是观察者模式，这里就简单的介绍一下观察者模式。
+什么是观察者模式观察者模式中主要有两种角色，观察者和被观察者。类似于订阅报纸，你的角色是订阅者(Observer)，出版商是发行报纸的一方，他的角色就是被订阅者(Subject)，而这两者的共同组合就是观察者模式。观察者模式数据流转：被观察者也就是被订阅者的数据发生了更新动作，所有订阅了的观察者都能够收到这">
 <meta name="twitter:image" content="http://og407vfi8.bkt.clouddn.com/14816169269167.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Zksyp的博客" type="application/atom+xml">
@@ -157,7 +157,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##写在前面<br>在RxJava的学习当中，RxJava使用的是观察者模式，这里就简单的介绍一下观察者模式。</p>
+        <p>在RxJava的学习当中，RxJava使用的是观察者模式，这里就简单的介绍一下观察者模式。</p>
 <h2 id="什么是观察者模式"><a href="#什么是观察者模式" class="headerlink" title="什么是观察者模式"></a>什么是观察者模式</h2><p>观察者模式中主要有两种角色，观察者和被观察者。<br>类似于订阅报纸，你的角色是订阅者(Observer)，出版商是发行报纸的一方，他的角色就是被订阅者(Subject)，而这两者的共同组合就是观察者模式。<br>观察者模式数据流转：被观察者也就是被订阅者的数据发生了更新动作，所有订阅了的观察者都能够收到这个更新，进而进行下一步操作。<br>就如订阅报纸，出版商的新闻信息一旦更新，出版了最新的报纸，每个订阅了报纸的用户都能够收到最新信息的报纸，而没有订阅的人则收不到。<br>观察者模式大概就是这个意思。</p>
 <a id="more"></a>
 <h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p>1）当一个对象变化的时候，需要同时改变其他对象，但预先不知道具体有多少个对象需要改变，这个时候使用观察者模式就好，只需订阅一下。<br>2）当一个对象改变的时候，必须告知其他对象，而这个对象是不能唯一指定，是可以变化的，也就是，这两个对象不希望是紧密耦合的。<br>3）当一个抽象模型有两个方面, 其中一个方面依赖于另一方面。将这二者封装在独立的对象中以使它们可以各自独立地改变和复用。</p>
