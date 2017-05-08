@@ -26,7 +26,7 @@
 <meta property="og:image" content="http://og407vfi8.bkt.clouddn.com/14942299049770.jpg">
 <meta property="og:image" content="http://og407vfi8.bkt.clouddn.com/14942299247425.jpg">
 <meta property="og:image" content="http://og407vfi8.bkt.clouddn.com/14942299827473.jpg">
-<meta property="og:updated_time" content="2017-05-08T08:11:57.000Z">
+<meta property="og:updated_time" content="2017-05-08T08:14:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java设计模式——代理模式">
 <meta name="twitter:description" content="代理顾名思义，简要地说就是A不想直接与B对接，于是找了一个中间人C来处理A与B之间的事务。因此代理模式中主要由：Subject(抽象主体)，RealSubject(真实主体)，Proxy(代理主体)构成，其中：
@@ -168,7 +168,8 @@
       
         <p>代理顾名思义，简要地说就是A不想直接与B对接，于是找了一个中间人C来处理A与B之间的事务。<br>因此代理模式中主要由：Subject(抽象主体)，RealSubject(真实主体)，Proxy(代理主体)构成，其中：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1. Subject:负责声明RealSubject和Proxy的应该实现的共同接口。</div><div class="line">2. RealSubject:负责完成真正意义上的业务需求。</div><div class="line">3. Proxy:包含了对RealSubject的引用，并且含有与RealSubject相同的接口，从而可以替代或者约束RealSubject的使用。简单点说就是可以对RealSubject的实现进行了加工。但本身并不真正意义上的处理业务。</div></pre></td></tr></table></figure>
-<p>日常常用的主要分为静态代理和动态代理。<br><a id="more"></a></p>
+<p>日常常用的主要分为静态代理和动态代理。</p>
+<a id="more"></a>
 <h2 id="静态代理"><a href="#静态代理" class="headerlink" title="静态代理"></a>静态代理</h2><p><img src="http://og407vfi8.bkt.clouddn.com/14942266934547.jpg" alt=""><br>上图是典型的静态代理的机构图。<br>下面我们用一个栗子来阐述一下：<br><img src="http://og407vfi8.bkt.clouddn.com/14942268587005.jpg" alt=""></p>
 <p>售票服务接口：<br><img src="http://og407vfi8.bkt.clouddn.com/14942271485794.jpg" alt=""></p>
 <p>售票服务接口实现类，车站：<br><img src="http://og407vfi8.bkt.clouddn.com/14942271978657.jpg" alt=""></p>
