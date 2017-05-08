@@ -155,22 +155,10 @@
       
         <p>代理顾名思义，简要地说就是A不想直接与B对接，于是找了一个中间人C来处理A与B之间的事务。<br>因此代理模式中主要由：Subject(抽象主体)，RealSubject(真实主体)，Proxy(代理主体)构成，其中：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1. Subject:负责声明RealSubject和Proxy的应该实现的共同接口。</div><div class="line">2. RealSubject:负责完成真正意义上的业务需求。</div><div class="line">3. Proxy:包含了对RealSubject的引用，并且含有与RealSubject相同的接口，从而可以替代或者约束RealSubject的使用。简单点说就是可以对RealSubject的实现进行了加工。但本身并不真正意义上的处理业务。</div></pre></td></tr></table></figure>
-<p>日常常用的主要分为静态代理和动态代理。</p>
-<h2 id="静态代理"><a href="#静态代理" class="headerlink" title="静态代理"></a>静态代理</h2><p><img src="http://og407vfi8.bkt.clouddn.com/14942266934547.jpg" alt=""><br>上图是典型的静态代理的机构图。<br>下面我们用一个栗子来阐述一下：<br><img src="http://og407vfi8.bkt.clouddn.com/14942268587005.jpg" alt=""></p>
-<p>售票服务接口：<br><img src="http://og407vfi8.bkt.clouddn.com/14942271485794.jpg" alt=""></p>
-<p>售票服务接口实现类，车站：<br><img src="http://og407vfi8.bkt.clouddn.com/14942271978657.jpg" alt=""></p>
-<p>售票服务接口代理类，车票代售点：<br><img src="http://og407vfi8.bkt.clouddn.com/14942275576405.jpg" alt=""></p>
-<p>测试：<br><img src="http://og407vfi8.bkt.clouddn.com/14942279518178.jpg" alt=""></p>
-<p>实现结果：<br><img src="http://og407vfi8.bkt.clouddn.com/14942279731207.jpg" alt=""></p>
-<p>静态代理的实现的大致过程就是如此，一个真实主体对应一个代理，而且代理类在代码编译时就已经确定好了。</p>
-<p>##动态代理<br>代理类并不是在Java代码中实现，而是在运行时期生成，相比静态代理，动态代理可以很方便的对委托类的方法进行统一处理，如添加方法调用次数、添加日志功能等等，动态代理分为jdk动态代理和cglib动态代理。<br>同样通过上面的例子，我们看看如何实现jdk动态代理。<br>主要的区别在于代理类的实现方式。</p>
-<p>售票服务接口代理类，车票代售点：<br><img src="http://og407vfi8.bkt.clouddn.com/14942299049770.jpg" alt=""></p>
-<p>测试：<br><img src="http://og407vfi8.bkt.clouddn.com/14942299247425.jpg" alt=""></p>
-<p>实现结果：<br><img src="http://og407vfi8.bkt.clouddn.com/14942299827473.jpg" alt=""></p>
-<p>动态代理的作用就是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1. Proxy类的代码量被固定下来，不会因为业务的逐渐庞大而庞大；</div><div class="line">2. 可以实现AOP编程，实际上静态代理也可以实现，总的来说，AOP可以算作是代理模式的一个典型应用；</div><div class="line">3. 解耦，通过参数就可以判断真实类，不需要事先实例化，更加灵活多变。</div></pre></td></tr></table></figure>
-<p>以上就是java的代理模式的静态与动态的实现。</p>
-
+<p>日常常用的主要分为静态代理和动态代理。<br>
+        <p class="article-more-link">
+          <a class="article-more-a"  href="/2017/05/05/2017-01-30/#more">more >></a>
+        </p>
       
     </div>
     <div class="article-info article-info-index">
