@@ -6,27 +6,32 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zksyp.me">
-  <title>.gitignore详解及编写 | Zksyp的博客</title>
+  <title>Java设计模式——代理模式 | Zksyp的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="每一个git管理的项目都可以创建一个.gitignore.的文件用来过滤掉不需要版本管理的代码。就比如安卓项目中的iml文件及build目录下面编译生成的文件。
-创建首先这个文件的全名是”.gitignore.”，前后都有一个点。
-过滤规则build/:过滤整个文件夹*.class:过滤所有.class结尾的文件local.properties:过滤具体文件
-1 在已忽略的文件夹中不忽略指定文件夹">
+  <meta name="description" content="代理顾名思义，简要地说就是A不想直接与B对接，于是找了一个中间人C来处理A与B之间的事务。因此代理模式中主要由：Subject(抽象主体)，RealSubject(真实主体)，Proxy(代理主体)构成，其中：
+1231. Subject:负责声明RealSubject和Proxy的应该实现的共同接口。2. RealSubject:负责完成真正意义上的业务需求。3. Proxy:包含了对RealS">
 <meta property="og:type" content="article">
-<meta property="og:title" content=".gitignore详解及编写">
-<meta property="og:url" content="http://zksyp.me/2016/12/15/2016-12-15/index.html">
+<meta property="og:title" content="Java设计模式——代理模式">
+<meta property="og:url" content="http://zksyp.me/2017/05/05/2017-01-30/index.html">
 <meta property="og:site_name" content="Zksyp的博客">
-<meta property="og:description" content="每一个git管理的项目都可以创建一个.gitignore.的文件用来过滤掉不需要版本管理的代码。就比如安卓项目中的iml文件及build目录下面编译生成的文件。
-创建首先这个文件的全名是”.gitignore.”，前后都有一个点。
-过滤规则build/:过滤整个文件夹*.class:过滤所有.class结尾的文件local.properties:过滤具体文件
-1 在已忽略的文件夹中不忽略指定文件夹">
-<meta property="og:updated_time" content="2016-12-15T08:08:24.000Z">
+<meta property="og:description" content="代理顾名思义，简要地说就是A不想直接与B对接，于是找了一个中间人C来处理A与B之间的事务。因此代理模式中主要由：Subject(抽象主体)，RealSubject(真实主体)，Proxy(代理主体)构成，其中：
+1231. Subject:负责声明RealSubject和Proxy的应该实现的共同接口。2. RealSubject:负责完成真正意义上的业务需求。3. Proxy:包含了对RealS">
+<meta property="og:image" content="http://og407vfi8.bkt.clouddn.com/14942266934547.jpg">
+<meta property="og:image" content="http://og407vfi8.bkt.clouddn.com/14942268587005.jpg">
+<meta property="og:image" content="http://og407vfi8.bkt.clouddn.com/14942271485794.jpg">
+<meta property="og:image" content="http://og407vfi8.bkt.clouddn.com/14942271978657.jpg">
+<meta property="og:image" content="http://og407vfi8.bkt.clouddn.com/14942275576405.jpg">
+<meta property="og:image" content="http://og407vfi8.bkt.clouddn.com/14942279518178.jpg">
+<meta property="og:image" content="http://og407vfi8.bkt.clouddn.com/14942279731207.jpg">
+<meta property="og:image" content="http://og407vfi8.bkt.clouddn.com/14942299049770.jpg">
+<meta property="og:image" content="http://og407vfi8.bkt.clouddn.com/14942299247425.jpg">
+<meta property="og:image" content="http://og407vfi8.bkt.clouddn.com/14942299827473.jpg">
+<meta property="og:updated_time" content="2017-05-08T08:08:28.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content=".gitignore详解及编写">
-<meta name="twitter:description" content="每一个git管理的项目都可以创建一个.gitignore.的文件用来过滤掉不需要版本管理的代码。就比如安卓项目中的iml文件及build目录下面编译生成的文件。
-创建首先这个文件的全名是”.gitignore.”，前后都有一个点。
-过滤规则build/:过滤整个文件夹*.class:过滤所有.class结尾的文件local.properties:过滤具体文件
-1 在已忽略的文件夹中不忽略指定文件夹">
+<meta name="twitter:title" content="Java设计模式——代理模式">
+<meta name="twitter:description" content="代理顾名思义，简要地说就是A不想直接与B对接，于是找了一个中间人C来处理A与B之间的事务。因此代理模式中主要由：Subject(抽象主体)，RealSubject(真实主体)，Proxy(代理主体)构成，其中：
+1231. Subject:负责声明RealSubject和Proxy的应该实现的共同接口。2. RealSubject:负责完成真正意义上的业务需求。3. Proxy:包含了对RealS">
+<meta name="twitter:image" content="http://og407vfi8.bkt.clouddn.com/14942266934547.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Zksyp的博客" type="application/atom+xml">
   
@@ -143,7 +148,7 @@
 </nav>
 
       <div class="body-wrap">
-        <article id="post-2016-12-15" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-2017-01-30" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -153,7 +158,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      .gitignore详解及编写
+      Java设计模式——代理模式
     </h1>
   
 
@@ -161,36 +166,35 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>每一个git管理的项目都可以创建一个.gitignore.的文件用来过滤掉不需要版本管理的代码。就比如安卓项目中的iml文件及build目录下面编译生成的文件。</p>
-<h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><p>首先这个文件的全名是”.gitignore.”，前后都有一个点。</p>
-<h3 id="过滤规则"><a href="#过滤规则" class="headerlink" title="过滤规则"></a>过滤规则</h3><p>build/:过滤整个文件夹<br>*.class:过滤所有.class结尾的文件<br>local.properties:过滤具体文件</p>
-<p>1 在已忽略的文件夹中不忽略指定文件夹</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/node_modules<span class="comment">/*</span></div><div class="line">!/node_modules/layer/</div></pre></td></tr></table></figure>
-<p>2 在已忽略的文件夹中不忽略指定文件</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/node_modules<span class="comment">/*</span></div><div class="line">!/node_modules/layer/layer.js</div></pre></td></tr></table></figure>
-<p>3 其他规则写法</p>
-<ul>
-<li>以斜杠”/“开头表示附录；</li>
-<li>以星号”*”通配多个字符；</li>
-<li>以问号”?”通配单个字符；</li>
-<li>以方括号”[]”包含单个字符的匹配列表；</li>
-</ul>
-<p>被过滤掉的文件不会push到远端，同理，该文件还可以指定需要的文件添加到版本管理中，添加规则就是在过滤规则前添加”!”号。</p>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>若在创建,gitignore.文件之前就push了项目，那么即使在该文件中添加了新的过滤规则，这些规则也不会起作用，Git仍然会对所有文件进行版本管理。</p>
-<p>若需要使这些规则生效，则需要先把需要过滤的文件的本地缓存删除(也就是改变成track状态)，然后再提交。<br>命令行如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git rm -r --cached</div><div class="line">git add .</div><div class="line">git commit -m &apos;update .gitnore&apos;</div></pre></td></tr></table></figure>
+        <p>代理顾名思义，简要地说就是A不想直接与B对接，于是找了一个中间人C来处理A与B之间的事务。<br>因此代理模式中主要由：Subject(抽象主体)，RealSubject(真实主体)，Proxy(代理主体)构成，其中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1. Subject:负责声明RealSubject和Proxy的应该实现的共同接口。</div><div class="line">2. RealSubject:负责完成真正意义上的业务需求。</div><div class="line">3. Proxy:包含了对RealSubject的引用，并且含有与RealSubject相同的接口，从而可以替代或者约束RealSubject的使用。简单点说就是可以对RealSubject的实现进行了加工。但本身并不真正意义上的处理业务。</div></pre></td></tr></table></figure>
+<p>日常常用的主要分为静态代理和动态代理。</p>
+<h2 id="静态代理"><a href="#静态代理" class="headerlink" title="静态代理"></a>静态代理</h2><p><img src="http://og407vfi8.bkt.clouddn.com/14942266934547.jpg" alt=""><br>上图是典型的静态代理的机构图。<br>下面我们用一个栗子来阐述一下：<br><img src="http://og407vfi8.bkt.clouddn.com/14942268587005.jpg" alt=""></p>
+<p>售票服务接口：<br><img src="http://og407vfi8.bkt.clouddn.com/14942271485794.jpg" alt=""></p>
+<p>售票服务接口实现类，车站：<br><img src="http://og407vfi8.bkt.clouddn.com/14942271978657.jpg" alt=""></p>
+<p>售票服务接口代理类，车票代售点：<br><img src="http://og407vfi8.bkt.clouddn.com/14942275576405.jpg" alt=""></p>
+<p>测试：<br><img src="http://og407vfi8.bkt.clouddn.com/14942279518178.jpg" alt=""></p>
+<p>实现结果：<br><img src="http://og407vfi8.bkt.clouddn.com/14942279731207.jpg" alt=""></p>
+<p>静态代理的实现的大致过程就是如此，一个真实主体对应一个代理，而且代理类在代码编译时就已经确定好了。</p>
+<p>##动态代理<br>代理类并不是在Java代码中实现，而是在运行时期生成，相比静态代理，动态代理可以很方便的对委托类的方法进行统一处理，如添加方法调用次数、添加日志功能等等，动态代理分为jdk动态代理和cglib动态代理。<br>同样通过上面的例子，我们看看如何实现jdk动态代理。<br>主要的区别在于代理类的实现方式。</p>
+<p>售票服务接口代理类，车票代售点：<br><img src="http://og407vfi8.bkt.clouddn.com/14942299049770.jpg" alt=""></p>
+<p>测试：<br><img src="http://og407vfi8.bkt.clouddn.com/14942299247425.jpg" alt=""></p>
+<p>实现结果：<br><img src="http://og407vfi8.bkt.clouddn.com/14942299827473.jpg" alt=""></p>
+<p>动态代理的作用就是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1. Proxy类的代码量被固定下来，不会因为业务的逐渐庞大而庞大；</div><div class="line">2. 可以实现AOP编程，实际上静态代理也可以实现，总的来说，AOP可以算作是代理模式的一个典型应用；</div><div class="line">3. 解耦，通过参数就可以判断真实类，不需要事先实例化，更加灵活多变。</div></pre></td></tr></table></figure>
+<p>以上就是java的代理模式的静态与动态的实现。</p>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/12/15/2016-12-15/" class="archive-article-date">
-  	<time datetime="2016-12-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-15</time>
+      <a href="/2017/05/05/2017-01-30/" class="archive-article-date">
+  	<time datetime="2017-05-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-05-05</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git代码管理/">git代码管理</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java代理模式/">Java代理模式</a></li></ul>
 	</div>
 
       
@@ -203,18 +207,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/12/20/2016-12-22/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          类似于京东的商品筛选功能实现
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/12/02/2016-12-12/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">RxJava框架学习</div>
+    <a href="/2016/12/20/2016-12-22/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">类似于京东的商品筛选功能实现</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -248,7 +243,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="2016-12-15" data-title=".gitignore详解及编写" data-url="http://zksyp.me/2016/12/15/2016-12-15/"></div>
+	<div class="ds-thread" data-thread-key="2017-01-30" data-title="Java设计模式——代理模式" data-url="http://zksyp.me/2017/05/05/2017-01-30/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

@@ -6,27 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zksyp.me">
-  <title>.gitignore详解及编写 | Zksyp的博客</title>
+  <title>Archives: 2017/5 | Zksyp的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="每一个git管理的项目都可以创建一个.gitignore.的文件用来过滤掉不需要版本管理的代码。就比如安卓项目中的iml文件及build目录下面编译生成的文件。
-创建首先这个文件的全名是”.gitignore.”，前后都有一个点。
-过滤规则build/:过滤整个文件夹*.class:过滤所有.class结尾的文件local.properties:过滤具体文件
-1 在已忽略的文件夹中不忽略指定文件夹">
-<meta property="og:type" content="article">
-<meta property="og:title" content=".gitignore详解及编写">
-<meta property="og:url" content="http://zksyp.me/2016/12/15/2016-12-15/index.html">
+  <meta name="description" content="普通Android搬砖工一枚">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Zksyp的博客">
+<meta property="og:url" content="http://zksyp.me/archives/2017/05/index.html">
 <meta property="og:site_name" content="Zksyp的博客">
-<meta property="og:description" content="每一个git管理的项目都可以创建一个.gitignore.的文件用来过滤掉不需要版本管理的代码。就比如安卓项目中的iml文件及build目录下面编译生成的文件。
-创建首先这个文件的全名是”.gitignore.”，前后都有一个点。
-过滤规则build/:过滤整个文件夹*.class:过滤所有.class结尾的文件local.properties:过滤具体文件
-1 在已忽略的文件夹中不忽略指定文件夹">
-<meta property="og:updated_time" content="2016-12-15T08:08:24.000Z">
+<meta property="og:description" content="普通Android搬砖工一枚">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content=".gitignore详解及编写">
-<meta name="twitter:description" content="每一个git管理的项目都可以创建一个.gitignore.的文件用来过滤掉不需要版本管理的代码。就比如安卓项目中的iml文件及build目录下面编译生成的文件。
-创建首先这个文件的全名是”.gitignore.”，前后都有一个点。
-过滤规则build/:过滤整个文件夹*.class:过滤所有.class结尾的文件local.properties:过滤具体文件
-1 在已忽略的文件夹中不忽略指定文件夹">
+<meta name="twitter:title" content="Zksyp的博客">
+<meta name="twitter:description" content="普通Android搬砖工一枚">
   
     <link rel="alternative" href="/atom.xml" title="Zksyp的博客" type="application/atom+xml">
   
@@ -143,130 +133,54 @@
 </nav>
 
       <div class="body-wrap">
-        <article id="post-2016-12-15" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      .gitignore详解及编写
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/05/05/2017-01-30/" class="archive-article-date">
+  	<time datetime="2017-05-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-05-05</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/05/05/2017-01-30/">Java设计模式——代理模式</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>每一个git管理的项目都可以创建一个.gitignore.的文件用来过滤掉不需要版本管理的代码。就比如安卓项目中的iml文件及build目录下面编译生成的文件。</p>
-<h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><p>首先这个文件的全名是”.gitignore.”，前后都有一个点。</p>
-<h3 id="过滤规则"><a href="#过滤规则" class="headerlink" title="过滤规则"></a>过滤规则</h3><p>build/:过滤整个文件夹<br>*.class:过滤所有.class结尾的文件<br>local.properties:过滤具体文件</p>
-<p>1 在已忽略的文件夹中不忽略指定文件夹</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/node_modules<span class="comment">/*</span></div><div class="line">!/node_modules/layer/</div></pre></td></tr></table></figure>
-<p>2 在已忽略的文件夹中不忽略指定文件</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/node_modules<span class="comment">/*</span></div><div class="line">!/node_modules/layer/layer.js</div></pre></td></tr></table></figure>
-<p>3 其他规则写法</p>
-<ul>
-<li>以斜杠”/“开头表示附录；</li>
-<li>以星号”*”通配多个字符；</li>
-<li>以问号”?”通配单个字符；</li>
-<li>以方括号”[]”包含单个字符的匹配列表；</li>
-</ul>
-<p>被过滤掉的文件不会push到远端，同理，该文件还可以指定需要的文件添加到版本管理中，添加规则就是在过滤规则前添加”!”号。</p>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>若在创建,gitignore.文件之前就push了项目，那么即使在该文件中添加了新的过滤规则，这些规则也不会起作用，Git仍然会对所有文件进行版本管理。</p>
-<p>若需要使这些规则生效，则需要先把需要过滤的文件的本地缓存删除(也就是改变成track状态)，然后再提交。<br>命令行如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git rm -r --cached</div><div class="line">git add .</div><div class="line">git commit -m &apos;update .gitnore&apos;</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/15/2016-12-15/" class="archive-article-date">
-  	<time datetime="2016-12-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-15</time>
-</a>
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git代码管理/">git代码管理</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java代理模式/">Java代理模式</a></li></ul>
 	</div>
 
-      
+          
 
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2016/12/20/2016-12-22/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          类似于京东的商品筛选功能实现
-        
-      </div>
-    </a>
   
   
-    <a href="/2016/12/02/2016-12-12/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">RxJava框架学习</div>
-      <i class="icon-circle-right"></i>
-    </a>
+    </div></section>
   
-</nav>
 
-
-
-
-<div class="share_jia">
-	<!-- JiaThis Button BEGIN -->
-	<div class="jiathis_style">
-		<span class="jiathis_txt">Share to: &nbsp; </span>
-		<a class="jiathis_button_facebook"></a> 
-	    <a class="jiathis_button_twitter"></a>
-	    <a class="jiathis_button_plus"></a> 
-	    <a class="jiathis_button_tsina"></a>
-		<a class="jiathis_button_cqq"></a>
-		<a class="jiathis_button_douban"></a>
-		<a class="jiathis_button_weixin"></a>
-		<a class="jiathis_button_tumblr"></a>
-    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	</div>
-	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
-	<!-- JiaThis Button END -->
-</div>
-
-
-
-
-
-
-<div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="2016-12-15" data-title=".gitignore详解及编写" data-url="http://zksyp.me/2016/12/15/2016-12-15/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"zksyp-hexo"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
-
-
+    
 
 
       </div>
@@ -289,8 +203,8 @@
 		mathjax: false,
 		animate: true,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
