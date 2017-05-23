@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://zksyp.me">
+  <title>自定义注解处理器常用接口与元素介绍 | Zksyp的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="常用元素自定义注解处理器中常用到元素：Element和TypeMirror，以下做个简要的介绍。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自定义注解处理器常用接口与元素介绍">
+<meta property="og:url" content="http://zksyp.me/2017/05/20/2017-05-22/index.html">
+<meta property="og:site_name" content="Zksyp的博客">
+<meta property="og:description" content="常用元素自定义注解处理器中常用到元素：Element和TypeMirror，以下做个简要的介绍。">
+<meta property="og:image" content="http://zksyp.me/media/14954373909142.jpg">
+<meta property="og:updated_time" content="2017-05-23T11:52:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="自定义注解处理器常用接口与元素介绍">
+<meta name="twitter:description" content="常用元素自定义注解处理器中常用到元素：Element和TypeMirror，以下做个简要的介绍。">
+<meta name="twitter:image" content="http://zksyp.me/media/14954373909142.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="Zksyp的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/assets/img/favicon.ico">
+  
+  <link rel="stylesheet" href="/main.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/assets/blogImg/zksyp.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Zksyp</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/photos">相册</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/zksyp" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="/" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">Zksyp</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/assets/blogImg/zksyp.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Zksyp</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/photos">相册</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/zksyp" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-2017-05-22" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      自定义注解处理器常用接口与元素介绍
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="常用元素"><a href="#常用元素" class="headerlink" title="常用元素"></a>常用元素</h1><p>自定义注解处理器中常用到元素：Element和TypeMirror，以下做个简要的介绍。</p>
+<a id="more"></a>
+<h2 id="Element"><a href="#Element" class="headerlink" title="Element"></a>Element</h2><p><a href="http://tool.oschina.net/apidocs/apidoc?api=jdk-zh" target="_blank" rel="external">Java文档中的说明是:</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** </span></div><div class="line"> * 表示一个程序元素，比如包、类或者方法，有如下几种子接口： </div><div class="line"> * ExecutableElement：表示某个类或接口的方法、构造方法或初始化程序（静态或实例），包括注解类型元素 ； </div><div class="line"> * PackageElement：表示一个包程序元素； </div><div class="line"> * TypeElement：表示一个类或接口程序元素； </div><div class="line"> * TypeParameterElement：表示一般类、接口、方法或构造方法元素的形式类型参数； </div><div class="line"> * VariableElement：表示一个字段、enum 常量、方法或构造方法参数、局部变量或异常参数 </div><div class="line"> */  </div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Element</span> <span class="keyword">extends</span> <span class="title">AnnotatedConstruct</span> </span>&#123;  </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 返回此元素定义的类型 </div><div class="line">     * 例如，对于一般类元素 C&lt;N extends Number&gt;，返回参数化类型 C&lt;N&gt; </div><div class="line">     */  </div><div class="line">    <span class="function">TypeMirror <span class="title">asType</span><span class="params">()</span></span>;  </div><div class="line">  </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 返回此元素的种类：包、类、接口、方法、字段...,如下枚举值 </div><div class="line">     * PACKAGE, ENUM, CLASS, ANNOTATION_TYPE, INTERFACE, ENUM_CONSTANT, FIELD, PARAMETER, LOCAL_VARIABLE, EXCEPTION_PARAMETER, </div><div class="line">     * METHOD, CONSTRUCTOR, STATIC_INIT, INSTANCE_INIT, TYPE_PARAMETER, OTHER, RESOURCE_VARIABLE; </div><div class="line">     */  </div><div class="line">    <span class="function">ElementKind <span class="title">getKind</span><span class="params">()</span></span>;  </div><div class="line">  </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 返回此元素的修饰符,如下枚举值 </div><div class="line">     * PUBLIC, PROTECTED, PRIVATE, ABSTRACT, DEFAULT, STATIC, FINAL, </div><div class="line">     * TRANSIENT, VOLATILE, SYNCHRONIZED, NATIVE, STRICTFP; </div><div class="line">     */  </div><div class="line">    <span class="function">Set&lt;Modifier&gt; <span class="title">getModifiers</span><span class="params">()</span></span>;  </div><div class="line">  </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 返回此元素的简单名称,例如 </div><div class="line">     * 类型元素 java.util.Set&lt;E&gt; 的简单名称是 "Set"； </div><div class="line">     * 如果此元素表示一个未指定的包，则返回一个空名称； </div><div class="line">     * 如果它表示一个构造方法，则返回名称 "&lt;init&gt;"； </div><div class="line">     * 如果它表示一个静态初始化程序，则返回名称 "&lt;clinit&gt;"； </div><div class="line">     * 如果它表示一个匿名类或者实例初始化程序，则返回一个空名称 </div><div class="line">     */  </div><div class="line">    <span class="function">Name <span class="title">getSimpleName</span><span class="params">()</span></span>;  </div><div class="line">  </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 返回封装此元素的最里层元素。 </div><div class="line">     * 如果此元素的声明在词法上直接封装在另一个元素的声明中，则返回那个封装元素； </div><div class="line">     * 如果此元素是顶层类型，则返回它的包； </div><div class="line">     * 如果此元素是一个包，则返回 null； </div><div class="line">     * 如果此元素是一个泛型参数，则返回 null. </div><div class="line">     */  </div><div class="line">    <span class="function">Element <span class="title">getEnclosingElement</span><span class="params">()</span></span>;  </div><div class="line">  </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 返回此元素直接封装的子元素 </div><div class="line">     */  </div><div class="line">    List&lt;? extends Element&gt; getEnclosedElements();  </div><div class="line">  </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 返回直接存在于此元素上的注解 </div><div class="line">     * 要获得继承的注解，可使用 getAllAnnotationMirrors </div><div class="line">     */  </div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    List&lt;? extends AnnotationMirror&gt; getAnnotationMirrors();  </div><div class="line">  </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 返回此元素针对指定类型的注解（如果存在这样的注解），否则返回 null。注解可以是继承的，也可以是直接存在于此元素上的 </div><div class="line">     */  </div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    &lt;A extends Annotation&gt; <span class="function">A <span class="title">getAnnotation</span><span class="params">(Class&lt;A&gt; annotationType)</span></span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Element有5个直接继承的子接口："><a href="#Element有5个直接继承的子接口：" class="headerlink" title="Element有5个直接继承的子接口："></a>Element有5个直接继承的子接口：</h2><h3 id="PackageElement-表示一个包程序元素"><a href="#PackageElement-表示一个包程序元素" class="headerlink" title="PackageElement:表示一个包程序元素"></a>PackageElement:<a href="http://tool.oschina.net/apidocs/apidoc?api=jdk-zh" target="_blank" rel="external">表示一个包程序元素</a></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** </span></div><div class="line"> * 表示一个包程序元素. </div><div class="line"> */  </div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">PackageElement</span> </span>&#123;  </div><div class="line">  </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 返回此包的完全限定名称。该名称也是包的规范名称 </div><div class="line">     */  </div><div class="line">    <span class="function">Name <span class="title">getQualifiedName</span><span class="params">()</span></span>;  </div><div class="line">  </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 如果此包是一个未命名的包，则返回 true，否则返回 false </div><div class="line">     */  </div><div class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isUnnamed</span><span class="params">()</span></span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="TypeElement-表示一个类或接口程序元素"><a href="#TypeElement-表示一个类或接口程序元素" class="headerlink" title="TypeElement:表示一个类或接口程序元素"></a>TypeElement:<a href="http://tool.oschina.net/apidocs/apidoc?api=jdk-zh" target="_blank" rel="external">表示一个类或接口程序元素</a></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** </span></div><div class="line"> * 表示一个类或接口程序元素 </div><div class="line"> */  </div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">TypeElement</span> </span>&#123;  </div><div class="line">  </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 返回此类型元素的嵌套种类 </div><div class="line">     * 某一类型元素的嵌套种类 (nesting kind)。类型元素的种类有四种：top-level（顶层）、member（成员）、local（局部）和 anonymous（匿名） </div><div class="line">     */  </div><div class="line">    <span class="function">NestingKind <span class="title">getNestingKind</span><span class="params">()</span></span>;  </div><div class="line">  </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 返回此类型元素的完全限定名称。更准确地说，返回规范 名称。对于没有规范名称的局部类和匿名类，返回一个空名称. </div><div class="line">     * 一般类型的名称不包括对其形式类型参数的任何引用。例如，接口 java.util.Set&lt;E&gt; 的完全限定名称是 "java.util.Set" </div><div class="line">     */  </div><div class="line">    <span class="function">Name <span class="title">getQualifiedName</span><span class="params">()</span></span>;  </div><div class="line">  </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 返回此类型元素的直接超类。如果此类型元素表示一个接口或者类 java.lang.Object，则返回一个种类为 NONE 的 NoType </div><div class="line">     */  </div><div class="line">    <span class="function">TypeMirror <span class="title">getSuperclass</span><span class="params">()</span></span>;  </div><div class="line">  </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 返回直接由此类实现或直接由此接口扩展的接口类型 </div><div class="line">     */  </div><div class="line">    List&lt;? extends TypeMirror&gt; getInterfaces();  </div><div class="line">  </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 按照声明顺序返回此类型元素的形式类型参数 </div><div class="line">     */  </div><div class="line">    List&lt;? extends TypeParameterElement&gt; getTypeParameters();  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="VariableElement-表示一个字段、enum-常量、方法或构造方法参数、局部变量或异常参数"><a href="#VariableElement-表示一个字段、enum-常量、方法或构造方法参数、局部变量或异常参数" class="headerlink" title="VariableElement:表示一个字段、enum 常量、方法或构造方法参数、局部变量或异常参数"></a>VariableElement:<a href="http://tool.oschina.net/apidocs/apidoc?api=jdk-zh" target="_blank" rel="external">表示一个字段、enum 常量、方法或构造方法参数、局部变量或异常参数</a></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** </span></div><div class="line"> * 表示一个字段、enum 常量、方法或构造方法参数、局部变量或异常参数 </div><div class="line"> */  </div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">VariableElement</span> </span>&#123;  </div><div class="line">  </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 如果此变量是一个被初始化为编译时常量的 static final 字段，则返回此变量的值。否则返回 null。 </div><div class="line">     * 该值为基本类型或 String，如果该值为基本类型，则它被包装在适当的包装类中（比如 Integer）。 </div><div class="line">     * 注意，并非所有的 static final 字段都将具有常量值。特别是，enum 常量不 被认为是编译时常量。要获得一个常量值，字段的类型必须是基本类型或 String </div><div class="line">     */  </div><div class="line">    <span class="function">Object <span class="title">getConstantValue</span><span class="params">()</span></span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="ExecutableElement-表示某个类或接口的方法、构造方法或初始化程序（静态或实例），包括注解类型元素"><a href="#ExecutableElement-表示某个类或接口的方法、构造方法或初始化程序（静态或实例），包括注解类型元素" class="headerlink" title="ExecutableElement:表示某个类或接口的方法、构造方法或初始化程序（静态或实例），包括注解类型元素"></a>ExecutableElement:<a href="http://tool.oschina.net/apidocs/apidoc?api=jdk-zh" target="_blank" rel="external">表示某个类或接口的方法、构造方法或初始化程序（静态或实例），包括注解类型元素</a></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** </span></div><div class="line"> * 表示某个类或接口的方法、构造方法或初始化程序（静态或实例），包括注解类型元素 </div><div class="line"> */  </div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ExecutableElement</span> </span>&#123;  </div><div class="line">  </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 获取按照声明顺序返回形式类型参数元素 </div><div class="line">     */  </div><div class="line">    List&lt;? extends TypeParameterElement&gt; getTypeParameters();  </div><div class="line">  </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 获取返回的类型元素 </div><div class="line">     */  </div><div class="line">    <span class="function">TypeMirror <span class="title">getReturnType</span><span class="params">()</span></span>;  </div><div class="line">  </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 获取形参元素 </div><div class="line">     */  </div><div class="line">    List&lt;? extends VariableElement&gt; getParameters();  </div><div class="line">  </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 如果此方法或构造方法接受可变数量的参数，则返回 true，否则返回 false </div><div class="line">     */  </div><div class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isVarArgs</span><span class="params">()</span></span>;  </div><div class="line">  </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 按声明顺序返回此方法或构造方法的 throws 子句中所列出的异常和其他 throwable </div><div class="line">     */  </div><div class="line">    List&lt;? extends TypeMirror&gt; getThrownTypes();  </div><div class="line">  </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 如果此 executable 是一个注解类型元素，则返回默认值。如果此方法不是注解类型元素，或者它是一个没有默认值的注解类型元素，则返回 null </div><div class="line">     */  </div><div class="line">    <span class="function">AnnotationValue <span class="title">getDefaultValue</span><span class="params">()</span></span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="TypeParameterElement-表示一般类、接口、方法或构造方法元素的泛型参数"><a href="#TypeParameterElement-表示一般类、接口、方法或构造方法元素的泛型参数" class="headerlink" title="TypeParameterElement:表示一般类、接口、方法或构造方法元素的泛型参数"></a>TypeParameterElement:<a href="http://tool.oschina.net/apidocs/apidoc?api=jdk-zh" target="_blank" rel="external">表示一般类、接口、方法或构造方法元素的泛型参数</a></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** </span></div><div class="line"> * 表示一般类、接口、方法或构造方法元素的泛型参数. </div><div class="line"> */  </div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">TypeParameterElement</span> </span>&#123;  </div><div class="line">  </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 返回由此类型参数参数化的一般类、接口、方法或构造方法 </div><div class="line">     */  </div><div class="line">    <span class="function">Element <span class="title">getGenericElement</span><span class="params">()</span></span>;  </div><div class="line">  </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 返回此类型参数的边界。它们是用来声明此类型参数的 extends 子句所指定的类型。 </div><div class="line">     * 如果没有使用显式的 extends 子句，则认为 java.lang.Object 是唯一的边界 </div><div class="line">     */  </div><div class="line">    List&lt;? extends TypeMirror&gt; getBounds();  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在使用过程中，我们可以根据实际情况强转成我们需要的具体某一种类型，以上每个类型都有自己独有的方法。</p>
+<h2 id="TypeMirror"><a href="#TypeMirror" class="headerlink" title="TypeMirror"></a>TypeMirror</h2><p><a href="http://tool.oschina.net/apidocs/apidoc?api=jdk-zh" target="_blank" rel="external">Java文档中的说明是:</a>表示 Java 编程语言中的类型。这些类型包括基本类型、声明类型（类和接口类型）、数组类型、类型变量和 null 类型。还可以表示通配符类型参数、executable 的签名和返回类型，以及对应于包和关键字 void 的伪类型。</p>
+<h1 id="常用接口"><a href="#常用接口" class="headerlink" title="常用接口"></a>常用接口</h1><p>processor初始化时，能够获取到四个辅助接口：<br><img src="media/14954373909142.jpg" alt=""></p>
+<h2 id="Filer"><a href="#Filer" class="headerlink" title="Filer"></a>Filer</h2><p>用来通过注解处理器生成我们需要的在运行时执行的.java文件。</p>
+<h2 id="Messager"><a href="#Messager" class="headerlink" title="Messager"></a>Messager</h2><p>提供给注解处理器一个报告错误、警告以及提示信息的途径。</p>
+<h2 id="Types"><a href="#Types" class="headerlink" title="Types"></a>Types</h2><p>Types是一个用来处理TypeMirror的工具。</p>
+<h2 id="Elements"><a href="#Elements" class="headerlink" title="Elements"></a>Elements</h2><p>Elements是一个用来处理Element的工具。</p>
+<p><a href="http://tool.oschina.net/apidocs/apidoc?api=jdk-zh" target="_blank" rel="external">以上的具体使用方法，Java文档中都用写到，这里就不赘述了。</a></p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/05/20/2017-05-22/" class="archive-article-date">
+  	<time datetime="2017-05-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-05-20</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java原理/">Java原理</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/05/18/2017-05-10/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android——自定义注解</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2017-05-22" data-title="自定义注解处理器常用接口与元素介绍" data-url="http://zksyp.me/2017/05/20/2017-05-22/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"zksyp-hexo"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 Zksyp
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Android原理分析/" style="font-size: 10px;">Android原理分析</a> <a href="/tags/Android原理学习/" style="font-size: 10px;">Android原理学习</a> <a href="/tags/Android框架学习/" style="font-size: 10px;">Android框架学习</a> <a href="/tags/Java原理/" style="font-size: 20px;">Java原理</a> <a href="/tags/Java设计模式/" style="font-size: 20px;">Java设计模式</a> <a href="/tags/git代码管理/" style="font-size: 10px;">git代码管理</a>
+    			</div>
+    	</section>
+    
+
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">Zksyp,&lt;br&gt;一枚小小的码农。&lt;br/&gt;</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
