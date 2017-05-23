@@ -8,30 +8,27 @@
   <link rel="dns-prefetch" href="http://zksyp.me">
   <title>Zksyp的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="layout: posttitle: “Android——自定义注解”date: 2017-05-18comments: truetags: Android原理分析
-
-根据Java注解基础中所讲述到的知识，java的注解主要分为源码级，编译时与运行时。所以android的自定义注解也主要分为源码级自定义注解，编译时自定义注解和运行时自定义注解。
+  <meta name="description" content="layout: posttitle: “Android——自定义注解”date: 2017-05-18comments: truetags: 
+   - Android原理分析根据Java注解基础中所讲述到的知识，java的注解主要分为源码级，编译时与运行时。所以android的自定义注解也主要分为源码级自定义注解，编译时自定义注解和运行时自定义注解。
 &amp;lt;-more&amp;gt;
-源码级自定义注解源码级">
+源码级自定义注">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Zksyp的博客">
 <meta property="og:url" content="http://zksyp.me/2017/05/10/2017-05-10/index.html">
 <meta property="og:site_name" content="Zksyp的博客">
-<meta property="og:description" content="layout: posttitle: “Android——自定义注解”date: 2017-05-18comments: truetags: Android原理分析
-
-根据Java注解基础中所讲述到的知识，java的注解主要分为源码级，编译时与运行时。所以android的自定义注解也主要分为源码级自定义注解，编译时自定义注解和运行时自定义注解。
+<meta property="og:description" content="layout: posttitle: “Android——自定义注解”date: 2017-05-18comments: truetags: 
+   - Android原理分析根据Java注解基础中所讲述到的知识，java的注解主要分为源码级，编译时与运行时。所以android的自定义注解也主要分为源码级自定义注解，编译时自定义注解和运行时自定义注解。
 &amp;lt;-more&amp;gt;
-源码级自定义注解源码级">
+源码级自定义注">
 <meta property="og:image" content="http://zksyp.me/media/14951622011016.jpg">
 <meta property="og:image" content="http://zksyp.me/media/14955324239403.jpg">
-<meta property="og:updated_time" content="2017-05-23T11:46:42.000Z">
+<meta property="og:updated_time" content="2017-05-23T11:49:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Zksyp的博客">
-<meta name="twitter:description" content="layout: posttitle: “Android——自定义注解”date: 2017-05-18comments: truetags: Android原理分析
-
-根据Java注解基础中所讲述到的知识，java的注解主要分为源码级，编译时与运行时。所以android的自定义注解也主要分为源码级自定义注解，编译时自定义注解和运行时自定义注解。
+<meta name="twitter:description" content="layout: posttitle: “Android——自定义注解”date: 2017-05-18comments: truetags: 
+   - Android原理分析根据Java注解基础中所讲述到的知识，java的注解主要分为源码级，编译时与运行时。所以android的自定义注解也主要分为源码级自定义注解，编译时自定义注解和运行时自定义注解。
 &amp;lt;-more&amp;gt;
-源码级自定义注解源码级">
+源码级自定义注">
 <meta name="twitter:image" content="http://zksyp.me/media/14951622011016.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Zksyp的博客" type="application/atom+xml">
@@ -158,9 +155,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <hr>
-<p>layout: post<br>title: “Android——自定义注解”<br>date: 2017-05-18<br>comments: true<br>tags: Android原理分析</p>
-<hr>
-<p>根据<a href="http://zksyp.me/2017/05/09/2017-05-09/">Java注解基础中所讲述到的知识</a>，<br>java的注解主要分为源码级，编译时与运行时。所以android的自定义注解也主要分为源码级自定义注解，编译时自定义注解和运行时自定义注解。</p>
+<p>layout: post<br>title: “Android——自定义注解”<br>date: 2017-05-18<br>comments: true<br>tags: </p>
+<h2 id="Android原理分析"><a href="#Android原理分析" class="headerlink" title="   - Android原理分析"></a>   - Android原理分析</h2><p>根据<a href="http://zksyp.me/2017/05/09/2017-05-09/">Java注解基础中所讲述到的知识</a>，<br>java的注解主要分为源码级，编译时与运行时。所以android的自定义注解也主要分为源码级自定义注解，编译时自定义注解和运行时自定义注解。</p>
 <p>&lt;-more&gt;</p>
 <h2 id="源码级自定义注解"><a href="#源码级自定义注解" class="headerlink" title="源码级自定义注解"></a>源码级自定义注解</h2><p>源码级注解指的是<code>@Retention</code>为SOURCE的Annotation.</p>
 <p>通常用来例如检查重载(<code>@Override</code>)，设置过时(<code>@Deprecated</code>)，抑制警告(<code>@SuppressWarnings</code>)等。这类注解通常是为编译器开发者服务的。</p>
