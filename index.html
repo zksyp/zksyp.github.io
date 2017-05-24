@@ -291,56 +291,6 @@
 
 
   
-    <article id="post-2017-05-09-1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/07/2017-05-09-1/">Java反射相关</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>反射的机制是在运行状态中。故能够成功调用反射方法时，那么就处于运行状态中。</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/05/07/2017-05-09-1/" class="archive-article-date">
-  	<time datetime="2017-05-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-05-07</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java原理/">Java原理</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
     <article id="post-2017-01-30" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -565,10 +515,61 @@
 
 
   
+    <article id="post-2016-11-07-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/30/2016-11-07-1/">View的绘制流程探索</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="从setContentView说起"><a href="#从setContentView说起" class="headerlink" title="从setContentView说起"></a>从setContentView说起</h2><p>如题，探索View的绘制流程，我们从大家最容易想到的方法setContentView()入手。setContentView(int layoutResID)方法是把我们在xml文件里画好的布局呈现在窗口中的纽带。进到该方法内，提示链接到Activity 的setContentView方法，最后我们可以看到：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setContentView</span><span class="params">(@LayoutRes <span class="keyword">int</span> layoutResID)</span> </span>&#123;</div><div class="line">        getWindow().setContentView(layoutResID);</div><div class="line">        initWindowDecorActionBar();</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>它调用的是抽象类window的setContentView方法，仔细追溯，我们发现<br><img src="http://og407vfi8.bkt.clouddn.com/14785059352930.jpg" alt=""></p>
+<p>实际调用的是phoneWindow类，也就是window类的一个实现类的setContentView方法，进到该方法：<br>
+        <p class="article-more-link">
+          <a class="article-more-a"  href="/2016/10/30/2016-11-07-1/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/10/30/2016-11-07-1/" class="archive-article-date">
+  	<time datetime="2016-10-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-30</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android原理学习/">Android原理学习</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
   
 
 
@@ -628,7 +629,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android原理/" style="font-size: 10px;">Android原理</a> <a href="/tags/Android原理学习/" style="font-size: 10px;">Android原理学习</a> <a href="/tags/Android框架学习/" style="font-size: 10px;">Android框架学习</a> <a href="/tags/Java原理/" style="font-size: 20px;">Java原理</a> <a href="/tags/Java设计模式/" style="font-size: 15px;">Java设计模式</a> <a href="/tags/git代码管理/" style="font-size: 10px;">git代码管理</a>
+    				<a href="/tags/Android原理/" style="font-size: 10px;">Android原理</a> <a href="/tags/Android原理学习/" style="font-size: 10px;">Android原理学习</a> <a href="/tags/Android框架学习/" style="font-size: 10px;">Android框架学习</a> <a href="/tags/Java原理/" style="font-size: 20px;">Java原理</a> <a href="/tags/Java设计模式/" style="font-size: 20px;">Java设计模式</a> <a href="/tags/git代码管理/" style="font-size: 10px;">git代码管理</a>
     			</div>
     	</section>
     
