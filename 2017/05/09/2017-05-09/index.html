@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Zksyp的博客">
 <meta property="og:description" content="简单点说java注解是一种代码级别的说明，可以声明在包、类、字段、方法、局部变量、方法参数等的前面，对这些元素进行说明和注释。Java定义了一套注解，截止到java8，这套注解一共有10个，5个在java.lang中，5个在java.lang.annotation中。">
 <meta property="og:image" content="http://og407vfi8.bkt.clouddn.com/14942961999479.jpg">
-<meta property="og:updated_time" content="2017-05-24T06:03:02.000Z">
+<meta property="og:updated_time" content="2017-05-24T06:12:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java注解——注解基础">
 <meta name="twitter:description" content="简单点说java注解是一种代码级别的说明，可以声明在包、类、字段、方法、局部变量、方法参数等的前面，对这些元素进行说明和注释。Java定义了一套注解，截止到java8，这套注解一共有10个，5个在java.lang中，5个在java.lang.annotation中。">
@@ -181,7 +181,7 @@
 <p>定义体中的参数支持：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">1. 所有基本数据类型(int,float,double,long,byte,char,short)</div><div class="line">2. String 类型</div><div class="line">3. Class 类型</div><div class="line">4. enum 类型</div><div class="line">5. Annotation 类型</div><div class="line">6. 以上所有类型的数组</div></pre></td></tr></table></figure>
 <p>参数设定规则：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1. 只能用public或默认(default)这两个访问权限修饰</div><div class="line">2. 只能用上述所列的数据类型</div><div class="line">3. 如果只有一个数据成员，最好把参数名称设为&quot;value&quot;，后面加小括号</div><div class="line">4. 可以使用default为每一个参数设置一个默认值，注解元素必须有确认的值，要么在定义注解的默认值中指定，要么在使用注解时指定，非基本数据类型的值不能为null。因此常用空字符串或0作为默认值。</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1. 只能用public或默认(default)这两个访问权限修饰</div><div class="line">2. 只能用上述所列的数据类型</div><div class="line">3. 如果只有一个数据成员，最好把参数名称设为&quot;value&quot;，后面加小括号</div><div class="line">4. 可以使用default为每一个参数设置一个默认值，注解元素必须有确认的值，要么在定义注解的默认值中指定，要么在使用注解时指定，基本数据类型的值不能为null。因此常用空字符串或0作为默认值。</div></pre></td></tr></table></figure>
 <p>自定义注解一般按照处理的时态来区分，主要分为<a href="http://zksyp.me/2017/05/18/2017-05-10/">源码级自定义注解,编译时自定义注解和运行时自定义注解。</a></p>
 
       
