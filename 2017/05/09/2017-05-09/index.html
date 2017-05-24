@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Zksyp的博客">
 <meta property="og:description" content="简单点说java注解是一种代码级别的说明，可以声明在包、类、字段、方法、局部变量、方法参数等的前面，对这些元素进行说明和注释。Java定义了一套注解，截止到java8，这套注解一共有10个，5个在java.lang中，5个在java.lang.annotation中。">
 <meta property="og:image" content="http://og407vfi8.bkt.clouddn.com/14942961999479.jpg">
-<meta property="og:updated_time" content="2017-05-23T12:10:39.000Z">
+<meta property="og:updated_time" content="2017-05-24T06:03:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java注解——注解基础">
 <meta name="twitter:description" content="简单点说java注解是一种代码级别的说明，可以声明在包、类、字段、方法、局部变量、方法参数等的前面，对这些元素进行说明和注释。Java定义了一套注解，截止到java8，这套注解一共有10个，5个在java.lang中，5个在java.lang.annotation中。">
@@ -166,7 +166,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">* TYPE：用于描述类，接口(包括注解类型)，或者枚举类型声明</div><div class="line">* FILED：用于描述域或称为成员变量(包括枚举常量)</div><div class="line">* METHOD：用于描述方法声明</div><div class="line">* PARAMETER：用于描述参数声明</div><div class="line">* CONSTRUCTOR：用于描述构造方法声明</div><div class="line">* LOCAL_VARIABLE：用于描述局部变量</div><div class="line">* ANNOTATION_TYPE：用于描述注解声明</div><div class="line">* PACKAGE：用于描述包声明</div></pre></td></tr></table></figure>
 <p>示例：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Target</span>(ElementType.FIELD)</div><div class="line"><span class="keyword">public</span> <span class="meta">@interface</span> AnnotationTest &#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>表示注解AnnotationTest用于疏解类的成员变量。</p>
+<p>表示注解AnnotationTest用于注解类的成员变量。</p>
 <h3 id="Retention"><a href="#Retention" class="headerlink" title="@Retention"></a>@Retention</h3><p>它是用来指明被作用的注解生命周期，比如某些注解仅出现在源码中，而被编译器丢弃，而另一些则被编译在class文件中，编译在class文件中的注解可能会被虚拟机忽略，但另一些在class被装载时将被读取。<br>需要注意的是：它只能作用于注解类型，不能作用于某注解类型中的成员变量。<br>同样的，它也能携带参数。包括：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">* SOURCE：在源文件中有效，会被编译器所丢弃。</div><div class="line">* CLASS：在class文件中有效，即编译器会把该注释保存在class文件中，但在运行时VM将不会保留。</div><div class="line">* RUNTIME：在运行时有效，即编译器会把该注释保存在class文件中，在运行时VM将保留注释，所以可以反射性读取。</div><div class="line">* 需要注意的是：以上三种类型是一种包含关系，RUNTIME ⊇ CLASS ⊇ SOURCE,即设为RUNTIME时，在源码阶段或者CLASS阶段也是能够处理的。</div></pre></td></tr></table></figure>
 <p>示例：</p>
