@@ -5,27 +5,24 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://zksyp.me">
+  <link rel="dns-prefetch" href="http://zksyp.com">
   <title>View的绘制流程探索 | Zksyp的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="从setContentView说起如题，探索View的绘制流程，我们从大家最容易想到的方法setContentView()入手。setContentView(int layoutResID)方法是把我们在xml文件里画好的布局呈现在窗口中的纽带。进到该方法内，提示链接到Activity 的setContentView方法，最后我们可以看到：
-1234public void setContentVi">
+  <meta name="description" content="从setContentView说起如题，探索View的绘制流程，废话少说。我们从大家最容易想到的方法setContentView()入手。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="View的绘制流程探索">
-<meta property="og:url" content="http://zksyp.me/2016/10/30/2016-11-07-1/index.html">
+<meta property="og:url" content="http://zksyp.com/2016/10/30/2016-11-07-1/index.html">
 <meta property="og:site_name" content="Zksyp的博客">
-<meta property="og:description" content="从setContentView说起如题，探索View的绘制流程，我们从大家最容易想到的方法setContentView()入手。setContentView(int layoutResID)方法是把我们在xml文件里画好的布局呈现在窗口中的纽带。进到该方法内，提示链接到Activity 的setContentView方法，最后我们可以看到：
-1234public void setContentVi">
+<meta property="og:description" content="从setContentView说起如题，探索View的绘制流程，废话少说。我们从大家最容易想到的方法setContentView()入手。">
 <meta property="og:image" content="http://og407vfi8.bkt.clouddn.com/14785059352930.jpg">
 <meta property="og:image" content="http://og407vfi8.bkt.clouddn.com/14785095066417.jpg">
 <meta property="og:image" content="http://og407vfi8.bkt.clouddn.com/14791232890128.jpg">
 <meta property="og:image" content="http://og407vfi8.bkt.clouddn.com/14803500905009.jpg">
 <meta property="og:image" content="http://og407vfi8.bkt.clouddn.com/14802635537295.jpg">
-<meta property="og:updated_time" content="2016-12-15T01:39:55.000Z">
+<meta property="og:updated_time" content="2018-04-01T13:35:23.103Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="View的绘制流程探索">
-<meta name="twitter:description" content="从setContentView说起如题，探索View的绘制流程，我们从大家最容易想到的方法setContentView()入手。setContentView(int layoutResID)方法是把我们在xml文件里画好的布局呈现在窗口中的纽带。进到该方法内，提示链接到Activity 的setContentView方法，最后我们可以看到：
-1234public void setContentVi">
+<meta name="twitter:description" content="从setContentView说起如题，探索View的绘制流程，废话少说。我们从大家最容易想到的方法setContentView()入手。">
 <meta name="twitter:image" content="http://og407vfi8.bkt.clouddn.com/14785059352930.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Zksyp的博客" type="application/atom+xml">
@@ -161,10 +158,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="从setContentView说起"><a href="#从setContentView说起" class="headerlink" title="从setContentView说起"></a>从setContentView说起</h2><p>如题，探索View的绘制流程，我们从大家最容易想到的方法setContentView()入手。setContentView(int layoutResID)方法是把我们在xml文件里画好的布局呈现在窗口中的纽带。进到该方法内，提示链接到Activity 的setContentView方法，最后我们可以看到：</p>
+        <h2 id="从setContentView说起"><a href="#从setContentView说起" class="headerlink" title="从setContentView说起"></a>从setContentView说起</h2><p>如题，探索View的绘制流程，废话少说。我们从大家最容易想到的方法setContentView()入手。<br><a id="more"></a></p>
+<p>setContentView(int layoutResID)方法是把我们在xml文件里画好的布局呈现在窗口中的纽带。进到该方法内，提示链接到Activity 的setContentView方法，最后我们可以看到：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setContentView</span><span class="params">(@LayoutRes <span class="keyword">int</span> layoutResID)</span> </span>&#123;</div><div class="line">        getWindow().setContentView(layoutResID);</div><div class="line">        initWindowDecorActionBar();</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <p>它调用的是抽象类window的setContentView方法，仔细追溯，我们发现<br><img src="http://og407vfi8.bkt.clouddn.com/14785059352930.jpg" alt=""></p>
-<p>实际调用的是phoneWindow类，也就是window类的一个实现类的setContentView方法，进到该方法：<br><a id="more"></a></p>
+<p>实际调用的是phoneWindow类，也就是window类的一个实现类的setContentView方法，进到该方法：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setContentView</span><span class="params">(<span class="keyword">int</span> layoutResID)</span> </span>&#123;</div><div class="line">        <span class="comment">// Note: FEATURE_CONTENT_TRANSITIONS may be set in the process of installing the window</span></div><div class="line">        <span class="comment">// decor, when theme attributes and the like are crystalized. Do not check the feature</span></div><div class="line">        <span class="comment">// before this happens.</span></div><div class="line">        <span class="keyword">if</span> (mContentParent == <span class="keyword">null</span>) &#123;</div><div class="line">            installDecor();</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!hasFeature(FEATURE_CONTENT_TRANSITIONS)) &#123;</div><div class="line">            mContentParent.removeAllViews();</div><div class="line">        &#125;</div><div class="line"><span class="keyword">if</span> (hasFeature(FEATURE_CONTENT_TRANSITIONS)) &#123;</div><div class="line">            <span class="keyword">final</span> Scene newScene = Scene.getSceneForLayout(mContentParent, layoutResID,</div><div class="line">                    getContext());</div><div class="line">            transitionTo(newScene);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            mLayoutInflater.inflate(layoutResID, mContentParent);</div><div class="line">        &#125;</div><div class="line">        mContentParent.requestApplyInsets();</div><div class="line">        <span class="keyword">final</span> Callback cb = getCallback();</div><div class="line">        <span class="keyword">if</span> (cb != <span class="keyword">null</span> &amp;&amp; !isDestroyed()) &#123;</div><div class="line">            cb.onContentChanged();</div><div class="line">        &#125;</div><div class="line">        mContentParentExplicitlySet = <span class="keyword">true</span>;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <p>当mContentParent为空，也就是内容的父View为空时，调用installDecor()方法，进到该方法：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">installDecor</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (mDecor == <span class="keyword">null</span>) &#123;</div><div class="line">            mDecor = generateDecor(-<span class="number">1</span>);<span class="comment">//生成一个DecorView</span></div><div class="line">            <span class="comment">//...</span></div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            mDecor.setWindow(<span class="keyword">this</span>);<span class="comment">//绑定Window</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (mContentParent == <span class="keyword">null</span>) &#123;</div><div class="line">            mContentParent = generateLayout(mDecor);<span class="comment">//生成ContentView</span></div><div class="line">            <span class="comment">//设置标题之类的、或者一些图标之类的</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
@@ -243,7 +241,7 @@
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android原理学习/">Android原理学习</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android学习/">Android学习</a></li></ul>
 	</div>
 
       
@@ -265,6 +263,11 @@
       </div>
     </a>
   
+  
+    <a href="/2016/10/20/2018-02-24-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Activity启动模式学习小结</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -296,7 +299,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="2016-11-07-1" data-title="View的绘制流程探索" data-url="http://zksyp.me/2016/10/30/2016-11-07-1/"></div>
+	<div class="ds-thread" data-thread-key="2016-11-07-1" data-title="View的绘制流程探索" data-url="http://zksyp.com/2016/10/30/2016-11-07-1/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -322,7 +325,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 Zksyp
+    		&copy; 2018 Zksyp
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -373,7 +376,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android原理/" style="font-size: 10px;">Android原理</a> <a href="/tags/Android原理学习/" style="font-size: 10px;">Android原理学习</a> <a href="/tags/Android框架学习/" style="font-size: 10px;">Android框架学习</a> <a href="/tags/Java原理/" style="font-size: 20px;">Java原理</a> <a href="/tags/Java设计模式/" style="font-size: 20px;">Java设计模式</a> <a href="/tags/git代码管理/" style="font-size: 10px;">git代码管理</a>
+    				<a href="/tags/Android学习/" style="font-size: 20px;">Android学习</a> <a href="/tags/Java学习/" style="font-size: 15px;">Java学习</a> <a href="/tags/Java设计模式/" style="font-size: 15px;">Java设计模式</a> <a href="/tags/git代码管理/" style="font-size: 10px;">git代码管理</a>
     			</div>
     	</section>
     

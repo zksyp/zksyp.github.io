@@ -5,23 +5,23 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://zksyp.me">
-  <title>Andorid——自定义注解 | Zksyp的博客</title>
+  <link rel="dns-prefetch" href="http://zksyp.com">
+  <title>Andorid——自定义注解实战 | Zksyp的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="根据Java注解基础中所讲述到的知识，java的注解主要分为源码级，编译时与运行时。所以android的自定义注解也主要分为源码级自定义注解，编译时自定义注解和运行时自定义注解。">
+  <meta name="description" content="android自定义注解实战根据Java注解基础中所讲述到的知识，java的注解主要分为源码级，编译时与运行时。所以android的自定义注解也主要分为源码级自定义注解，编译时自定义注解和运行时自定义注解。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Andorid——自定义注解">
-<meta property="og:url" content="http://zksyp.me/2017/05/18/2017-05-10/index.html">
+<meta property="og:title" content="Andorid——自定义注解实战">
+<meta property="og:url" content="http://zksyp.com/2017/05/18/2017-05-10/index.html">
 <meta property="og:site_name" content="Zksyp的博客">
-<meta property="og:description" content="根据Java注解基础中所讲述到的知识，java的注解主要分为源码级，编译时与运行时。所以android的自定义注解也主要分为源码级自定义注解，编译时自定义注解和运行时自定义注解。">
+<meta property="og:description" content="android自定义注解实战根据Java注解基础中所讲述到的知识，java的注解主要分为源码级，编译时与运行时。所以android的自定义注解也主要分为源码级自定义注解，编译时自定义注解和运行时自定义注解。">
 <meta property="og:image" content="http://og407vfi8.bkt.clouddn.com/14951622011016.jpg">
 <meta property="og:image" content="http://og407vfi8.bkt.clouddn.com/14955324239403.jpg">
 <meta property="og:image" content="http://og407vfi8.bkt.clouddn.com/14955889121322.jpg">
 <meta property="og:image" content="http://og407vfi8.bkt.clouddn.com/14955888724855.jpg">
-<meta property="og:updated_time" content="2017-05-24T06:31:11.000Z">
+<meta property="og:updated_time" content="2018-04-01T13:41:19.907Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Andorid——自定义注解">
-<meta name="twitter:description" content="根据Java注解基础中所讲述到的知识，java的注解主要分为源码级，编译时与运行时。所以android的自定义注解也主要分为源码级自定义注解，编译时自定义注解和运行时自定义注解。">
+<meta name="twitter:title" content="Andorid——自定义注解实战">
+<meta name="twitter:description" content="android自定义注解实战根据Java注解基础中所讲述到的知识，java的注解主要分为源码级，编译时与运行时。所以android的自定义注解也主要分为源码级自定义注解，编译时自定义注解和运行时自定义注解。">
 <meta name="twitter:image" content="http://og407vfi8.bkt.clouddn.com/14951622011016.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Zksyp的博客" type="application/atom+xml">
@@ -149,7 +149,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Andorid——自定义注解
+      Andorid——自定义注解实战
     </h1>
   
 
@@ -157,7 +157,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>根据<a href="http://zksyp.me/2017/05/09/2017-05-09/">Java注解基础中所讲述到的知识</a>，<br>java的注解主要分为源码级，编译时与运行时。所以android的自定义注解也主要分为源码级自定义注解，编译时自定义注解和运行时自定义注解。</p>
+        <h2 id="android自定义注解实战"><a href="#android自定义注解实战" class="headerlink" title="android自定义注解实战"></a>android自定义注解实战</h2><p>根据<a href="http://zksyp.me/2017/05/09/2017-05-09/" target="_blank" rel="external">Java注解基础中所讲述到的知识</a>，<br>java的注解主要分为源码级，编译时与运行时。所以android的自定义注解也主要分为源码级自定义注解，编译时自定义注解和运行时自定义注解。</p>
 <a id="more"></a>
 <h2 id="一-源码级自定义注解"><a href="#一-源码级自定义注解" class="headerlink" title="一 源码级自定义注解"></a>一 源码级自定义注解</h2><p>源码级注解指的是<code>@Retention</code>为SOURCE的Annotation.</p>
 <p>通常用来例如检查重载(<code>@Override</code>)，设置过时(<code>@Deprecated</code>)，抑制警告(<code>@SuppressWarnings</code>)等。这类注解通常是为编译器开发者服务的。</p>
@@ -180,7 +180,7 @@
 <li><p>init(ProcessingEnviornment env)：这是注解处理器类的构造函数，里面含有ProcessingEnviornment 参数，它提供了很多有用的工具类Elements,Types和Filer。</p>
 </li>
 <li><p>process(Set&lt;? extends TypeElement&gt; annotations, RoundEnvironment roundEnv)：这是处理器的核心函数，里面进行一系列的注解的处理。其中参数roundEnv可以获取到所需要的被特殊注解所注解的所有元素。</p>
-<h4 id="自定义注解处理所用的常用元素与常用接口介绍"><a href="#自定义注解处理所用的常用元素与常用接口介绍" class="headerlink" title="自定义注解处理所用的常用元素与常用接口介绍"></a><a href="http://zksyp.me/2017/05/20/2017-05-22/">自定义注解处理所用的常用元素与常用接口介绍</a></h4></li>
+<h4 id="自定义注解处理所用的常用元素与常用接口介绍"><a href="#自定义注解处理所用的常用元素与常用接口介绍" class="headerlink" title="自定义注解处理所用的常用元素与常用接口介绍"></a><a href="http://zksyp.me/2017/05/20/2017-05-22/" target="_blank" rel="external">自定义注解处理所用的常用元素与常用接口介绍</a></h4></li>
 </ul>
 <h4 id="3-注册自定义注解处理器"><a href="#3-注册自定义注解处理器" class="headerlink" title="3 注册自定义注解处理器"></a>3 注册自定义注解处理器</h4><p>在自定义注解处理器编写完成后，我们还需要注册这个处理器，不然编译器在编译时是不能够处理的我们的自定义注解的。<br>注册有两种方法：<br>第一种：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">1、在 process 工程的 main 目录下新建 resources 资源文件夹；</div><div class="line"></div><div class="line">2、在 resources文件夹下建立 META-INF/services 目录文件夹；</div><div class="line"></div><div class="line">3、在 META-INF/services 目录文件夹下创建 javax.annotation.process(工程名称).processor(自定义注解处理器名称) 文件；</div><div class="line"></div><div class="line">4、在 javax.annotation.process(工程名称).processor(自定义注解处理器名称)  文件写入注解处理器的全称，包括包路径；</div></pre></td></tr></table></figure>
@@ -225,7 +225,7 @@
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android原理/">Android原理</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android学习/">Android学习</a></li></ul>
 	</div>
 
       
@@ -283,7 +283,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="2017-05-10" data-title="Andorid——自定义注解" data-url="http://zksyp.me/2017/05/18/2017-05-10/"></div>
+	<div class="ds-thread" data-thread-key="2017-05-10" data-title="Andorid——自定义注解实战" data-url="http://zksyp.com/2017/05/18/2017-05-10/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -309,7 +309,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 Zksyp
+    		&copy; 2018 Zksyp
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -360,7 +360,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android原理/" style="font-size: 10px;">Android原理</a> <a href="/tags/Android原理学习/" style="font-size: 10px;">Android原理学习</a> <a href="/tags/Android框架学习/" style="font-size: 10px;">Android框架学习</a> <a href="/tags/Java原理/" style="font-size: 20px;">Java原理</a> <a href="/tags/Java设计模式/" style="font-size: 20px;">Java设计模式</a> <a href="/tags/git代码管理/" style="font-size: 10px;">git代码管理</a>
+    				<a href="/tags/Android学习/" style="font-size: 20px;">Android学习</a> <a href="/tags/Java学习/" style="font-size: 15px;">Java学习</a> <a href="/tags/Java设计模式/" style="font-size: 15px;">Java设计模式</a> <a href="/tags/git代码管理/" style="font-size: 10px;">git代码管理</a>
     			</div>
     	</section>
     

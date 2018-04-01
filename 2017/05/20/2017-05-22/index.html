@@ -5,20 +5,20 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://zksyp.me">
+  <link rel="dns-prefetch" href="http://zksyp.com">
   <title>自定义注解处理器中常用到的元素与方法 | Zksyp的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="常用元素自定义注解处理器中常用到元素：Element和TypeMirror，以下做个简要的介绍。">
+  <meta name="description" content="自定义注解中的常用元素介绍自定义注解处理器中常用到元素：Element和TypeMirror，以下做个简要的介绍。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自定义注解处理器中常用到的元素与方法">
-<meta property="og:url" content="http://zksyp.me/2017/05/20/2017-05-22/index.html">
+<meta property="og:url" content="http://zksyp.com/2017/05/20/2017-05-22/index.html">
 <meta property="og:site_name" content="Zksyp的博客">
-<meta property="og:description" content="常用元素自定义注解处理器中常用到元素：Element和TypeMirror，以下做个简要的介绍。">
+<meta property="og:description" content="自定义注解中的常用元素介绍自定义注解处理器中常用到元素：Element和TypeMirror，以下做个简要的介绍。">
 <meta property="og:image" content="http://og407vfi8.bkt.clouddn.com/14954373909142.jpg">
-<meta property="og:updated_time" content="2017-05-24T03:02:02.000Z">
+<meta property="og:updated_time" content="2018-04-01T13:41:43.742Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自定义注解处理器中常用到的元素与方法">
-<meta name="twitter:description" content="常用元素自定义注解处理器中常用到元素：Element和TypeMirror，以下做个简要的介绍。">
+<meta name="twitter:description" content="自定义注解中的常用元素介绍自定义注解处理器中常用到元素：Element和TypeMirror，以下做个简要的介绍。">
 <meta name="twitter:image" content="http://og407vfi8.bkt.clouddn.com/14954373909142.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Zksyp的博客" type="application/atom+xml">
@@ -154,7 +154,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="常用元素"><a href="#常用元素" class="headerlink" title="常用元素"></a>常用元素</h1><p>自定义注解处理器中常用到元素：Element和TypeMirror，以下做个简要的介绍。</p>
+        <h2 id="自定义注解中的常用元素介绍"><a href="#自定义注解中的常用元素介绍" class="headerlink" title="自定义注解中的常用元素介绍"></a>自定义注解中的常用元素介绍</h2><p>自定义注解处理器中常用到元素：Element和TypeMirror，以下做个简要的介绍。</p>
 <a id="more"></a>
 <h2 id="Element"><a href="#Element" class="headerlink" title="Element"></a>Element</h2><p><a href="http://tool.oschina.net/apidocs/apidoc?api=jdk-zh" target="_blank" rel="external">Java文档中的说明是:</a></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** </span></div><div class="line"> * 表示一个程序元素，比如包、类或者方法，有如下几种子接口： </div><div class="line"> * ExecutableElement：表示某个类或接口的方法、构造方法或初始化程序（静态或实例），包括注解类型元素 ； </div><div class="line"> * PackageElement：表示一个包程序元素； </div><div class="line"> * TypeElement：表示一个类或接口程序元素； </div><div class="line"> * TypeParameterElement：表示一般类、接口、方法或构造方法元素的形式类型参数； </div><div class="line"> * VariableElement：表示一个字段、enum 常量、方法或构造方法参数、局部变量或异常参数 </div><div class="line"> */  </div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Element</span> <span class="keyword">extends</span> <span class="title">AnnotatedConstruct</span> </span>&#123;  </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 返回此元素定义的类型 </div><div class="line">     * 例如，对于一般类元素 C&lt;N extends Number&gt;，返回参数化类型 C&lt;N&gt; </div><div class="line">     */  </div><div class="line">    <span class="function">TypeMirror <span class="title">asType</span><span class="params">()</span></span>;  </div><div class="line">  </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 返回此元素的种类：包、类、接口、方法、字段...,如下枚举值 </div><div class="line">     * PACKAGE, ENUM, CLASS, ANNOTATION_TYPE, INTERFACE, ENUM_CONSTANT, FIELD, PARAMETER, LOCAL_VARIABLE, EXCEPTION_PARAMETER, </div><div class="line">     * METHOD, CONSTRUCTOR, STATIC_INIT, INSTANCE_INIT, TYPE_PARAMETER, OTHER, RESOURCE_VARIABLE; </div><div class="line">     */  </div><div class="line">    <span class="function">ElementKind <span class="title">getKind</span><span class="params">()</span></span>;  </div><div class="line">  </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 返回此元素的修饰符,如下枚举值 </div><div class="line">     * PUBLIC, PROTECTED, PRIVATE, ABSTRACT, DEFAULT, STATIC, FINAL, </div><div class="line">     * TRANSIENT, VOLATILE, SYNCHRONIZED, NATIVE, STRICTFP; </div><div class="line">     */  </div><div class="line">    <span class="function">Set&lt;Modifier&gt; <span class="title">getModifiers</span><span class="params">()</span></span>;  </div><div class="line">  </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 返回此元素的简单名称,例如 </div><div class="line">     * 类型元素 java.util.Set&lt;E&gt; 的简单名称是 "Set"； </div><div class="line">     * 如果此元素表示一个未指定的包，则返回一个空名称； </div><div class="line">     * 如果它表示一个构造方法，则返回名称 "&lt;init&gt;"； </div><div class="line">     * 如果它表示一个静态初始化程序，则返回名称 "&lt;clinit&gt;"； </div><div class="line">     * 如果它表示一个匿名类或者实例初始化程序，则返回一个空名称 </div><div class="line">     */  </div><div class="line">    <span class="function">Name <span class="title">getSimpleName</span><span class="params">()</span></span>;  </div><div class="line">  </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 返回封装此元素的最里层元素。 </div><div class="line">     * 如果此元素的声明在词法上直接封装在另一个元素的声明中，则返回那个封装元素； </div><div class="line">     * 如果此元素是顶层类型，则返回它的包； </div><div class="line">     * 如果此元素是一个包，则返回 null； </div><div class="line">     * 如果此元素是一个泛型参数，则返回 null. </div><div class="line">     */  </div><div class="line">    <span class="function">Element <span class="title">getEnclosingElement</span><span class="params">()</span></span>;  </div><div class="line">  </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 返回此元素直接封装的子元素 </div><div class="line">     */  </div><div class="line">    List&lt;? extends Element&gt; getEnclosedElements();  </div><div class="line">  </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 返回直接存在于此元素上的注解 </div><div class="line">     * 要获得继承的注解，可使用 getAllAnnotationMirrors </div><div class="line">     */  </div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    List&lt;? extends AnnotationMirror&gt; getAnnotationMirrors();  </div><div class="line">  </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 返回此元素针对指定类型的注解（如果存在这样的注解），否则返回 null。注解可以是继承的，也可以是直接存在于此元素上的 </div><div class="line">     */  </div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    &lt;A extends Annotation&gt; <span class="function">A <span class="title">getAnnotation</span><span class="params">(Class&lt;A&gt; annotationType)</span></span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -182,7 +182,7 @@
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java原理/">Java原理</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java学习/">Java学习</a></li></ul>
 	</div>
 
       
@@ -195,9 +195,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2017/09/20/2018-04-01/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Android各新版本变化小结(持续更新)
+        
+      </div>
+    </a>
+  
   
     <a href="/2017/05/18/2017-05-10/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Andorid——自定义注解</div>
+      <div class="article-nav-title">Andorid——自定义注解实战</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -231,7 +240,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="2017-05-22" data-title="自定义注解处理器中常用到的元素与方法" data-url="http://zksyp.me/2017/05/20/2017-05-22/"></div>
+	<div class="ds-thread" data-thread-key="2017-05-22" data-title="自定义注解处理器中常用到的元素与方法" data-url="http://zksyp.com/2017/05/20/2017-05-22/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -257,7 +266,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 Zksyp
+    		&copy; 2018 Zksyp
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -308,7 +317,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android原理/" style="font-size: 10px;">Android原理</a> <a href="/tags/Android原理学习/" style="font-size: 10px;">Android原理学习</a> <a href="/tags/Android框架学习/" style="font-size: 10px;">Android框架学习</a> <a href="/tags/Java原理/" style="font-size: 20px;">Java原理</a> <a href="/tags/Java设计模式/" style="font-size: 20px;">Java设计模式</a> <a href="/tags/git代码管理/" style="font-size: 10px;">git代码管理</a>
+    				<a href="/tags/Android学习/" style="font-size: 20px;">Android学习</a> <a href="/tags/Java学习/" style="font-size: 15px;">Java学习</a> <a href="/tags/Java设计模式/" style="font-size: 15px;">Java设计模式</a> <a href="/tags/git代码管理/" style="font-size: 10px;">git代码管理</a>
     			</div>
     	</section>
     

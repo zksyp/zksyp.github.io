@@ -6,18 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zksyp.com">
-  <title>.gitignore详解及编写 | Zksyp的博客</title>
+  <title>Activity启动模式学习小结 | Zksyp的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="协同开发引发的问题今天上传本地代码的时候发现多了很多异常的文件，一查发是.gitignore文件不小心丢失了。现在就对此来做一个简单的探讨。每一个git管理的项目都可以创建一个.gitignore.的文件用来过滤掉不需要版本管理的代码。就比如安卓项目中的iml文件及build目录下面编译生成的文件。">
+  <meta name="description" content="这里是对Activity启动模式的一个学习小结。">
 <meta property="og:type" content="article">
-<meta property="og:title" content=".gitignore详解及编写">
-<meta property="og:url" content="http://zksyp.com/2016/12/15/2016-12-15/index.html">
+<meta property="og:title" content="Activity启动模式学习小结">
+<meta property="og:url" content="http://zksyp.com/2016/10/20/2018-02-24-1/index.html">
 <meta property="og:site_name" content="Zksyp的博客">
-<meta property="og:description" content="协同开发引发的问题今天上传本地代码的时候发现多了很多异常的文件，一查发是.gitignore文件不小心丢失了。现在就对此来做一个简单的探讨。每一个git管理的项目都可以创建一个.gitignore.的文件用来过滤掉不需要版本管理的代码。就比如安卓项目中的iml文件及build目录下面编译生成的文件。">
-<meta property="og:updated_time" content="2018-04-01T13:39:53.318Z">
+<meta property="og:description" content="这里是对Activity启动模式的一个学习小结。">
+<meta property="og:image" content="http://og407vfi8.bkt.clouddn.com/15194383180775.jpg">
+<meta property="og:image" content="http://og407vfi8.bkt.clouddn.com/15194387709063.jpg">
+<meta property="og:image" content="http://og407vfi8.bkt.clouddn.com/15194395425865.jpg">
+<meta property="og:updated_time" content="2018-04-01T15:29:08.588Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content=".gitignore详解及编写">
-<meta name="twitter:description" content="协同开发引发的问题今天上传本地代码的时候发现多了很多异常的文件，一查发是.gitignore文件不小心丢失了。现在就对此来做一个简单的探讨。每一个git管理的项目都可以创建一个.gitignore.的文件用来过滤掉不需要版本管理的代码。就比如安卓项目中的iml文件及build目录下面编译生成的文件。">
+<meta name="twitter:title" content="Activity启动模式学习小结">
+<meta name="twitter:description" content="这里是对Activity启动模式的一个学习小结。">
+<meta name="twitter:image" content="http://og407vfi8.bkt.clouddn.com/15194383180775.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Zksyp的博客" type="application/atom+xml">
   
@@ -134,7 +138,7 @@
 </nav>
 
       <div class="body-wrap">
-        <article id="post-2016-12-15" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-2018-02-24-1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -144,7 +148,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      .gitignore详解及编写
+      Activity启动模式学习小结
     </h1>
   
 
@@ -152,37 +156,30 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="协同开发引发的问题"><a href="#协同开发引发的问题" class="headerlink" title="协同开发引发的问题"></a>协同开发引发的问题</h2><p>今天上传本地代码的时候发现多了很多异常的文件，一查发是.gitignore文件不小心丢失了。现在就对此来做一个简单的探讨。<br>每一个git管理的项目都可以创建一个.gitignore.的文件用来过滤掉不需要版本管理的代码。就比如安卓项目中的iml文件及build目录下面编译生成的文件。</p>
-<a id="more"></a>
-<h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><p>首先这个文件的全名是”.gitignore.”，前后都有一个点。</p>
-<h3 id="过滤规则"><a href="#过滤规则" class="headerlink" title="过滤规则"></a>过滤规则</h3><p>build/:过滤整个文件夹<br>*.class:过滤所有.class结尾的文件<br>local.properties:过滤具体文件</p>
-<p>1 在已忽略的文件夹中不忽略指定文件夹</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/node_modules<span class="comment">/*</span></div><div class="line">!/node_modules/layer/</div></pre></td></tr></table></figure>
-<p>2 在已忽略的文件夹中不忽略指定文件</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/node_modules<span class="comment">/*</span></div><div class="line">!/node_modules/layer/layer.js</div></pre></td></tr></table></figure>
-<p>3 其他规则写法</p>
-<ul>
-<li>以斜杠”/“开头表示附录；</li>
-<li>以星号”*”通配多个字符；</li>
-<li>以问号”?”通配单个字符；</li>
-<li>以方括号”[]”包含单个字符的匹配列表；</li>
-</ul>
-<p>被过滤掉的文件不会push到远端，同理，该文件还可以指定需要的文件添加到版本管理中，添加规则就是在过滤规则前添加”!”号。</p>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>若在创建,gitignore.文件之前就push了项目，那么即使在该文件中添加了新的过滤规则，这些规则也不会起作用，Git仍然会对所有文件进行版本管理。</p>
-<p>若需要使这些规则生效，则需要先把需要过滤的文件的本地缓存删除(也就是改变成track状态)，然后再提交。<br>命令行如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git rm -r --cached</div><div class="line">git add .</div><div class="line">git commit -m &apos;update .gitnore&apos;</div></pre></td></tr></table></figure>
+        <p>这里是对Activity启动模式的一个学习小结。<br><a id="more"></a><br>Activity 的管理采用的是栈的结构，遵循后进先出的原则。<br><img src="http://og407vfi8.bkt.clouddn.com/15194383180775.jpg" alt=""></p>
+<p>1 标准模式(standard)<br>每次启动一个Activity，就会创建一个新的Activity实例，置于栈顶，而这个栈是由启动这个Activity的前Activity决定的。<br><img src="http://og407vfi8.bkt.clouddn.com/15194387709063.jpg" alt=""></p>
+<p>但由Service或Application启动的Activity是没有初始栈的，比如常见的接收push的时候。这个时候，可以在启动Activity的时候设置一个FLAG，”FLAG_ACTIVITY_NEW_TASK”这样的标记位，这样在启动的时候，就会生成一个新的栈。</p>
+<p>2 栈顶复用模式(SingleTop)<br>若启动的Activity在Activity管理栈的栈顶，则不会生成新的Activity实例，直接会复用栈顶的该Activity，并且会回调 OnNewIntent()方法。<br><img src="http://og407vfi8.bkt.clouddn.com/15194395425865.jpg" alt=""></p>
+<p>3 栈内复用模式(SingleTask)<br>若启动的Activity在Activity管理栈的栈内，则不会生成新的Activity实例，并且会把该Activity上面的所有实例杀死并推出栈，使其置于栈顶，并复用该实例，然后回调OnNewIntent()方法。</p>
+<p>这里需要介绍一个属性”taskAffinity”，和”singleTask”配合使用，在Manifest中可以给Activity指明其所需要存在的栈。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;activity android:name=".Activity1"</div><div class="line">    android:launchMode="singleTask"</div><div class="line">    android:taskAffinity="com.xxx.task"</div><div class="line">    android:label="@string/app_name"&gt;</div><div class="line">&lt;/activity&gt;</div></pre></td></tr></table></figure>
+<p>若不指定，则使用Application指定的栈，若Application也没有指定，则默认为包名。</p>
+<p>App的主页Activity大都都是设置成这个属性。</p>
+<p>4 单例模式(SingleInstance)<br>在启动一个Activity时直接生成一个新的栈，并生成该Activity的实例放入栈中，至此，只要后续一旦激活该Acitivity，都会复用该实例。</p>
+<p>常用的Activity的Flags：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">(1)FLAG_ACTIVITY_NEW_TASK </div><div class="line">  其效果与指定Activity为singleTask模式一致。</div><div class="line">(2)FLAG_ACTIVITY_SINGLE_TOP </div><div class="line">  其效果与指定Activity为singleTop模式一致。</div><div class="line">(3)FLAG_ACTIVITY_CLEAR_TOP </div><div class="line">  具有此标记位的Activity，当它启动时，在同一个任务栈中所有位于它上面的Activity都要出栈。如果和singleTask模式一起出现，若被启动的Activity已经存在栈中，则清除其之上的Activity，并调用该Activity的onNewIntent方法。如果被启动的Activity采用standard模式，那么该Activity连同之上的所有Activity出栈，然后创建新的Activity实例并压入栈中。</div><div class="line">(4)FLAG_ACTIVITY_NO_HISTORY </div><div class="line">  使用该模式来启动Activity，当该Activity启动其他Activity后，该Activity就被销毁了，不会保留在任务栈中。如A-B,B中以这种模式启动C，C再启动D，则任务栈只有ABD。</div></pre></td></tr></table></figure>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/12/15/2016-12-15/" class="archive-article-date">
-  	<time datetime="2016-12-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-15</time>
+      <a href="/2016/10/20/2018-02-24-1/" class="archive-article-date">
+  	<time datetime="2016-10-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-20</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git代码管理/">git代码管理</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android学习/">Android学习</a></li></ul>
 	</div>
 
       
@@ -195,18 +192,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/05/05/2017-01-30/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/10/30/2016-11-07-1/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Java设计模式——代理模式
+          View的绘制流程探索
         
       </div>
     </a>
   
   
-    <a href="/2016/11/25/2016-12-13/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java设计模式——观察者模式</div>
+    <a href="/2016/09/20/2018-02-24/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Activity的生命周期学习小结</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -240,7 +237,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="2016-12-15" data-title=".gitignore详解及编写" data-url="http://zksyp.com/2016/12/15/2016-12-15/"></div>
+	<div class="ds-thread" data-thread-key="2018-02-24-1" data-title="Activity启动模式学习小结" data-url="http://zksyp.com/2016/10/20/2018-02-24-1/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
