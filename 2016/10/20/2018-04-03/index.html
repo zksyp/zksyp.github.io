@@ -6,20 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zksyp.com">
-  <title>Activity的生命周期学习小结 | Zksyp的博客</title>
+  <title>使用GitHub Pages和Hexo搭建属于自己的博客 | Zksyp的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这里是对Activity生命周期的学习小结。">
+  <meta name="description" content="作为一个开发者，无论水平高低，在自己平时的学习中都需要有自己思考，当然也就需要有个地方把自己思考的东西记录下来。现在市面上有很多写博客的地方,比如:CSDN,简书,掘金等等。之前我也是在CSDN上写博客，偶然一天在晚上看见可以使用GitHub和Hexo来搭建自己的个人博客，于是就学习了一把，这里做个简单的总结。(以下操作都是基于mac下的操作)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Activity的生命周期学习小结">
-<meta property="og:url" content="http://zksyp.com/2016/09/20/2018-02-24/index.html">
+<meta property="og:title" content="使用GitHub Pages和Hexo搭建属于自己的博客">
+<meta property="og:url" content="http://zksyp.com/2016/10/20/2018-04-03/index.html">
 <meta property="og:site_name" content="Zksyp的博客">
-<meta property="og:description" content="这里是对Activity生命周期的学习小结。">
-<meta property="og:image" content="http://og407vfi8.bkt.clouddn.com/15194384966636.jpg">
-<meta property="og:updated_time" content="2018-04-01T15:34:28.793Z">
+<meta property="og:description" content="作为一个开发者，无论水平高低，在自己平时的学习中都需要有自己思考，当然也就需要有个地方把自己思考的东西记录下来。现在市面上有很多写博客的地方,比如:CSDN,简书,掘金等等。之前我也是在CSDN上写博客，偶然一天在晚上看见可以使用GitHub和Hexo来搭建自己的个人博客，于是就学习了一把，这里做个简单的总结。(以下操作都是基于mac下的操作)">
+<meta property="og:image" content="http://zksyp.com/media/15227268697643.jpg">
+<meta property="og:image" content="http://zksyp.com/media/15227381369513.jpg">
+<meta property="og:updated_time" content="2018-04-03T07:16:22.489Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Activity的生命周期学习小结">
-<meta name="twitter:description" content="这里是对Activity生命周期的学习小结。">
-<meta name="twitter:image" content="http://og407vfi8.bkt.clouddn.com/15194384966636.jpg">
+<meta name="twitter:title" content="使用GitHub Pages和Hexo搭建属于自己的博客">
+<meta name="twitter:description" content="作为一个开发者，无论水平高低，在自己平时的学习中都需要有自己思考，当然也就需要有个地方把自己思考的东西记录下来。现在市面上有很多写博客的地方,比如:CSDN,简书,掘金等等。之前我也是在CSDN上写博客，偶然一天在晚上看见可以使用GitHub和Hexo来搭建自己的个人博客，于是就学习了一把，这里做个简单的总结。(以下操作都是基于mac下的操作)">
+<meta name="twitter:image" content="http://zksyp.com/media/15227268697643.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Zksyp的博客" type="application/atom+xml">
   
@@ -136,7 +137,7 @@
 </nav>
 
       <div class="body-wrap">
-        <article id="post-2018-02-24" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-2018-04-03" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -146,7 +147,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Activity的生命周期学习小结
+      使用GitHub Pages和Hexo搭建属于自己的博客
     </h1>
   
 
@@ -154,37 +155,62 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这里是对Activity生命周期的学习小结。<br><a id="more"></a></p>
-<h2 id="常规的Activity的生命周期的流程："><a href="#常规的Activity的生命周期的流程：" class="headerlink" title="常规的Activity的生命周期的流程："></a>常规的Activity的生命周期的流程：</h2><p><img src="http://og407vfi8.bkt.clouddn.com/15194384966636.jpg" alt=""></p>
-<h2 id="特殊情况下Activity的生命周期："><a href="#特殊情况下Activity的生命周期：" class="headerlink" title="特殊情况下Activity的生命周期："></a>特殊情况下Activity的生命周期：</h2><ol>
-<li>横竖屏的切换</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">系统会调用OnSaveInstance()方法用来保存当前Activity的状态和数据，和OnPause()之间没有特定的调用的时序关系，只在OnStop()之前调用，之后Activity会调用OnDestory()销毁。在屏幕恢复之后，调用OnCreate()或者OnRestoreInstance()方法来恢复Activity。完整的生命周期流程如下：</div><div class="line"></div><div class="line">OnPause() -&gt; OnSaveInstance() -&gt; OnStop() -&gt; OnDestory() -&gt; OnCreate() -&gt; OnRestoreInstance() -&gt; OnResume()</div></pre></td></tr></table></figure>
-<p>若在Manifest中设置</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android:configChanges = <span class="string">"orientation| screenSize"</span></div></pre></td></tr></table></figure>
-<p>则在横竖屏切换时，Activity并不会销毁和重建，会回调以下方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onConfigurationChanged</span><span class="params">(Configuration newConfig)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onConfigurationChanged(newConfig);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+        <p>  作为一个开发者，无论水平高低，在自己平时的学习中都需要有自己思考，当然也就需要有个地方把自己思考的东西记录下来。现在市面上有很多写博客的地方,比如:CSDN,简书,掘金等等。之前我也是在CSDN上写博客，偶然一天在晚上看见可以使用GitHub和Hexo来搭建自己的个人博客，于是就学习了一把，这里做个简单的总结。(以下操作都是基于mac下的操作)<br><a id="more"></a><br>整个过程分为总共分为三步</p>
 <ol>
-<li>Activity被杀死<br>Activity优先级的划分和下面的Activity的三种运行状态是对应的。</li>
+<li>构建Hexo本地仓库</li>
+<li>构建gitHub博客远程仓库</li>
+<li>关联hexo本地仓库与gitHub远程仓库</li>
+<li>绑定个人域名(选做) </li>
 </ol>
-<ul>
-<li>前台Activity——正在和用户交互的Activity，优先级最高。</li>
-<li>可见但非前台Activity——比如Activity中弹出了一个对话框，导致Activity可见但是位于后台无法和用户交互。</li>
-<li>后台Activity——已经被暂停的Activity，比如执行了onStop，优先级最低。</li>
+<h2 id="构建Hexo本地工程"><a href="#构建Hexo本地工程" class="headerlink" title="构建Hexo本地工程"></a>构建Hexo本地工程</h2><ul>
+<li>安装git环境。</li>
+<li>安装node.js环境</li>
+<li>安装hexo环境</li>
 </ul>
-<p>当系统内存不足时，会按照上述优先级从低到高去杀死目标Activity所在的进程。我们在平常使用手机时，能经常感受到这一现象。这种情况下数据存储和恢复过程和上述情况一致，生命周期情况也一样。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">在安装好node.js后，在终端任意界面下输入以下命令安装hexo:</div><div class="line">npm install -g hexo</div></pre></td></tr></table></figure>
+<ul>
+<li>安装hexo git依赖</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
+<ul>
+<li>创建hexo项目</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">在任意盘符创建一个文件夹，cmd进到该文件夹，输入命令&quot;hexo init&quot;，hexo 便自动创建了一个项目，目录结构如下: </div><div class="line">![](media/15227367570171.jpg)</div><div class="line">然后输入&quot;hexo server -p 5001&quot;，如果出现以下信息，就说明你的hexo项目已经成功创建了。</div><div class="line">![](media/15227370388792.jpg)</div><div class="line">浏览器中输入上面的地址，你就可以看到你的hexo工程了。</div></pre></td></tr></table></figure>
+<p>到这里，hexo本地工程就已经构建好了。</p>
+<h2 id="构建GitHub-Pages-远端工程"><a href="#构建GitHub-Pages-远端工程" class="headerlink" title="构建GitHub Pages 远端工程"></a>构建GitHub Pages 远端工程</h2><p>  注册gitHub啥的这里有略过了。登录你的gitHub之后，创建一个工程，命名格式严格按照格式：”账户名.github.io”，并且需要勾选”Initialize this repository with a README”。<br>  建好工程之后，进到setting页面，然后拉到GitHub Pages那一栏。你会发现你的项目已经部署到网络上了，你就可以通过外网访问这个域名，然后就可以进到你的博客了。<br>  <img src="media/15227268697643.jpg" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">因为我设置了自己的域名，所以框内的网址是我自己设置的域名地址(至于设置域名，稍后我会讲到)，若没有设置自己的域名,这里显示的就是&quot;https//账户名.github.io&quot;</div></pre></td></tr></table></figure>
+<p>到这里，gitHub远端工程就构建完成了。</p>
+<h2 id="关联本地工程和远端工程"><a href="#关联本地工程和远端工程" class="headerlink" title="关联本地工程和远端工程"></a>关联本地工程和远端工程</h2><p>  打开hexo本地工程，找到”_config.yml”文件，找到deploy一栏<br><img src="media/15227381369513.jpg" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: https://github.com/zksyp/zksyp.github.io.git</div><div class="line">  branch: master</div><div class="line">  这里有几点需要注意： </div><div class="line">- 每个参数，冒号后面，必须要有一个空格！！！！！！ </div><div class="line">- repository 参数需要 ssh 的clone地址 </div><div class="line">- branch 分支需要是master分支</div></pre></td></tr></table></figure></p>
+<p>  配置好以上参数之后，cmd到hexo工程目录，输入以下命令<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo d -g</div></pre></td></tr></table></figure></p>
+<p>  到这里你的本地仓库与远端仓库就关联起来了。</p>
+<h2 id="绑定域名-选做"><a href="#绑定域名-选做" class="headerlink" title="绑定域名(选做)"></a>绑定域名(选做)</h2><p>  域名我是从阿里云上买的。</p>
+<ol>
+<li><p>在控制台进到你所购买的域名管理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](media/15227390000218.jpg)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol>
+<li><p>选择域名解析</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">  设置相关参数:</div><div class="line">![](media/15227392480173.jpg)</div><div class="line">其中A记录指向的ip是GitHub Pages提供的ip，CNAME的&quot;记录值&quot;就是个人的GitHub Pages地址。</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol>
+<li><p>在个人的GitHub Pages里添加CNAME文件，”xxx.com”是你注册的域名</p>
+<p>这样在网页中输入你注册的域名就能跳转到你的个人博客了。</p>
+</li>
+</ol>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/09/20/2018-02-24/" class="archive-article-date">
-  	<time datetime="2016-09-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-20</time>
+      <a href="/2016/10/20/2018-04-03/" class="archive-article-date">
+  	<time datetime="2016-10-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-20</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android学习/">Android学习</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
 	</div>
 
       
@@ -197,15 +223,20 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/10/20/2018-04-03/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/10/20/2018-02-24-1/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          使用GitHub Pages和Hexo搭建属于自己的博客
+          Activity启动模式学习小结
         
       </div>
     </a>
   
+  
+    <a href="/2016/09/20/2018-02-24/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Activity的生命周期学习小结</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -237,7 +268,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="2018-02-24" data-title="Activity的生命周期学习小结" data-url="http://zksyp.com/2016/09/20/2018-02-24/"></div>
+	<div class="ds-thread" data-thread-key="2018-04-03" data-title="使用GitHub Pages和Hexo搭建属于自己的博客" data-url="http://zksyp.com/2016/10/20/2018-04-03/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
