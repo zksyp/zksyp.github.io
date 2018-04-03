@@ -85,6 +85,10 @@
     
 
     
+        
+            <link rel="stylesheet" href="/css/fontawesome.min.css">
+        
+    
 
     <!-- Config CSS -->
 
@@ -300,8 +304,101 @@
 
 
     
-        <body id="scheme-Nexus" class="lazy">
+        <body id="scheme-Isolation" class="lazy">
             <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+                    <!-- Isolation Header -->
+                    <header class="header">
+    <div class="header-wrapper">
+        <!-- Header Copyright -->
+        <div class="header-copyright">
+            <div class="header-site">
+                ©&nbsp;
+                <script type="text/javascript">
+                    var fd = new Date();
+                    document.write(fd.getFullYear());
+                </script>
+                &nbsp;Zksyp的博客
+            </div>
+            <!--
+            I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+            It will not impact the appearance and can give developers a lot of support :)
+
+            很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+            它不会影响美观并可以给开发者很大的支持。 :)
+            -->
+            <div>
+                Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a>
+                <br>
+                Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a>
+            </div>
+        </div>
+
+        <!-- Header Title -->
+        <span class="header-title header-item">
+            <a href="/" title="Zksyp的博客">
+                Zksyp的博客
+            </a>
+        </span>
+
+        <p class="header-slogan header-item">
+        
+            
+                Love is a touch but yet not a touch
+            
+        
+        </p>
+
+        <!-- Header Nav -->
+        <nav class="header-nav header-item">
+            <span class="header-nav-item">
+                <a href="/" title="Home">
+                    <span>主页</span>
+                </a>
+            </span>
+
+            <!-- Pages  -->
+            
+            
+        </nav>
+
+        <!-- Header SNS -->
+        <div class="header-item header-sns_list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/zksyp" target="_blank">
+            <i class="fa fa-github fa-lg" aria-hidden="true"></i>
+        </a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Telegram -->
+    
+</div>
+
+    </div>
+</header>
+
                 
 
                 <!-- Main Container -->
@@ -330,6 +427,21 @@
                 
 
 
+    <!-- Isolation Post Header -->
+    <!-- Post thumbnail -->
+    
+        <!-- Post Header Info -->
+        <div class="post-header_info without-thumbnail">
+            <!-- Author Avatar & Name -->
+            <img src="/img/avatar.png" class="avatar-img" width="44px" height="44px" alt="Zksyp's avatar">
+            <span class="name-span">Zksyp</span>
+        </div>
+
+        <!-- Null Thumbnail -->
+        <div class="post_thumbnail-null">
+    
+        </div>
+
 
 
                 
@@ -339,9 +451,39 @@
     
 
     
+        <div class="post-content_wrapper">
+            <p class="post-title">
+                .gitignore详解及编写
+            </p>
+            <h2 id="协同开发引发的问题"><a href="#协同开发引发的问题" class="headerlink" title="协同开发引发的问题"></a>协同开发引发的问题</h2><p>今天上传本地代码的时候发现多了很多异常的文件，一查发是.gitignore文件不小心丢失了。现在就对此来做一个简单的探讨。<br>每一个git管理的项目都可以创建一个.gitignore.的文件用来过滤掉不需要版本管理的代码。就比如安卓项目中的iml文件及build目录下面编译生成的文件。</p>
+<a id="more"></a>
+<h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><p>首先这个文件的全名是”.gitignore.”，前后都有一个点。</p>
+<h3 id="过滤规则"><a href="#过滤规则" class="headerlink" title="过滤规则"></a>过滤规则</h3><p>build/:过滤整个文件夹<br>*.class:过滤所有.class结尾的文件<br>local.properties:过滤具体文件</p>
+<p>1 在已忽略的文件夹中不忽略指定文件夹</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/node_modules<span class="comment">/*</span></div><div class="line">!/node_modules/layer/</div></pre></td></tr></table></figure>
+<p>2 在已忽略的文件夹中不忽略指定文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/node_modules<span class="comment">/*</span></div><div class="line">!/node_modules/layer/layer.js</div></pre></td></tr></table></figure>
+<p>3 其他规则写法</p>
+<ul>
+<li>以斜杠”/“开头表示附录；</li>
+<li>以星号”*”通配多个字符；</li>
+<li>以问号”?”通配单个字符；</li>
+<li>以方括号”[]”包含单个字符的匹配列表；</li>
+</ul>
+<p>被过滤掉的文件不会push到远端，同理，该文件还可以指定需要的文件添加到版本管理中，添加规则就是在过滤规则前添加”!”号。</p>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>若在创建,gitignore.文件之前就push了项目，那么即使在该文件中添加了新的过滤规则，这些规则也不会起作用，Git仍然会对所有文件进行版本管理。</p>
+<p>若需要使这些规则生效，则需要先把需要过滤的文件的本地缓存删除(也就是改变成track状态)，然后再提交。<br>命令行如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git rm -r --cached</div><div class="line">git add .</div><div class="line">git commit -m &apos;update .gitnore&apos;</div></pre></td></tr></table></figure>
+
+            
+        </div>
+    
 </div>
 
 
+                
+                    <!-- Paradox Post Info -->
+                    
                 
 
                 <!-- Post Comments -->

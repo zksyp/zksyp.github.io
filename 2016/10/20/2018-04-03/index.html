@@ -85,6 +85,10 @@
     
 
     
+        
+            <link rel="stylesheet" href="/css/fontawesome.min.css">
+        
+    
 
     <!-- Config CSS -->
 
@@ -300,8 +304,101 @@
 
 
     
-        <body id="scheme-Nexus" class="lazy">
+        <body id="scheme-Isolation" class="lazy">
             <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+                    <!-- Isolation Header -->
+                    <header class="header">
+    <div class="header-wrapper">
+        <!-- Header Copyright -->
+        <div class="header-copyright">
+            <div class="header-site">
+                ©&nbsp;
+                <script type="text/javascript">
+                    var fd = new Date();
+                    document.write(fd.getFullYear());
+                </script>
+                &nbsp;Zksyp的博客
+            </div>
+            <!--
+            I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+            It will not impact the appearance and can give developers a lot of support :)
+
+            很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+            它不会影响美观并可以给开发者很大的支持。 :)
+            -->
+            <div>
+                Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a>
+                <br>
+                Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a>
+            </div>
+        </div>
+
+        <!-- Header Title -->
+        <span class="header-title header-item">
+            <a href="/" title="Zksyp的博客">
+                Zksyp的博客
+            </a>
+        </span>
+
+        <p class="header-slogan header-item">
+        
+            
+                Love is a touch but yet not a touch
+            
+        
+        </p>
+
+        <!-- Header Nav -->
+        <nav class="header-nav header-item">
+            <span class="header-nav-item">
+                <a href="/" title="Home">
+                    <span>主页</span>
+                </a>
+            </span>
+
+            <!-- Pages  -->
+            
+            
+        </nav>
+
+        <!-- Header SNS -->
+        <div class="header-item header-sns_list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/zksyp" target="_blank">
+            <i class="fa fa-github fa-lg" aria-hidden="true"></i>
+        </a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Telegram -->
+    
+</div>
+
+    </div>
+</header>
+
                 
 
                 <!-- Main Container -->
@@ -330,6 +427,21 @@
                 
 
 
+    <!-- Isolation Post Header -->
+    <!-- Post thumbnail -->
+    
+        <!-- Post Header Info -->
+        <div class="post-header_info without-thumbnail">
+            <!-- Author Avatar & Name -->
+            <img src="/img/avatar.png" class="avatar-img" width="44px" height="44px" alt="Zksyp's avatar">
+            <span class="name-span">Zksyp</span>
+        </div>
+
+        <!-- Null Thumbnail -->
+        <div class="post_thumbnail-null">
+    
+        </div>
+
 
 
                 
@@ -339,9 +451,64 @@
     
 
     
+        <div class="post-content_wrapper">
+            <p class="post-title">
+                使用GitHub Pages和Hexo搭建属于自己的博客
+            </p>
+            <p>  作为一个开发者，无论水平高低，在自己平时的学习中都需要有自己思考，当然也就需要有个地方把自己思考的东西记录下来。现在市面上有很多写博客的地方,比如:CSDN,简书,掘金等等。之前我也是在CSDN上写博客，偶然一天在晚上看见可以使用GitHub和Hexo来搭建自己的个人博客，于是就学习了一把，这里做个简单的总结。(以下操作都是基于mac下的操作)<br><a id="more"></a><br>整个过程分为总共分为三步</p>
+<ol>
+<li>构建Hexo本地仓库</li>
+<li>构建gitHub博客远程仓库</li>
+<li>关联hexo本地仓库与gitHub远程仓库</li>
+<li>绑定个人域名(选做) </li>
+</ol>
+<h2 id="构建Hexo本地工程"><a href="#构建Hexo本地工程" class="headerlink" title="构建Hexo本地工程"></a>构建Hexo本地工程</h2><ul>
+<li>安装git环境。</li>
+<li>安装node.js环境</li>
+<li>安装hexo环境</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">在安装好node.js后，在终端任意界面下输入以下命令安装hexo:</div><div class="line">npm install -g hexo</div></pre></td></tr></table></figure>
+<ul>
+<li>安装hexo git依赖</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
+<ul>
+<li>创建hexo项目</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">在任意盘符创建一个文件夹，cmd进到该文件夹，输入命令&quot;hexo init&quot;，hexo 便自动创建了一个项目，目录结构如下: </div><div class="line">![](media/15227476253667.jpg)</div><div class="line"></div><div class="line">然后输入&quot;hexo server -p 5001&quot;，如果出现以下信息，就说明你的hexo项目已经成功创建了。</div><div class="line">![](media/15227370388792.jpg)</div><div class="line">浏览器中输入上面的地址，你就可以看到你的hexo工程了。</div></pre></td></tr></table></figure>
+<p>到这里，hexo本地工程就已经构建好了。</p>
+<h2 id="构建GitHub-Pages-远端工程"><a href="#构建GitHub-Pages-远端工程" class="headerlink" title="构建GitHub Pages 远端工程"></a>构建GitHub Pages 远端工程</h2><p>  注册gitHub啥的这里有略过了。登录你的gitHub之后，创建一个工程，命名格式严格按照格式：”账户名.github.io”，并且需要勾选”Initialize this repository with a README”。<br>  建好工程之后，进到setting页面，然后拉到GitHub Pages那一栏。你会发现你的项目已经部署到网络上了，你就可以通过外网访问这个域名，然后就可以进到你的博客了。<br>  <img src="http://og407vfi8.bkt.clouddn.com/15227268697643.jpg" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">因为我设置了自己的域名，所以框内的网址是我自己设置的域名地址(至于设置域名，稍后我会讲到)，若没有设置自己的域名,这里显示的就是&quot;https//账户名.github.io&quot;</div></pre></td></tr></table></figure>
+<p>到这里，gitHub远端工程就构建完成了。</p>
+<h2 id="关联本地工程和远端工程"><a href="#关联本地工程和远端工程" class="headerlink" title="关联本地工程和远端工程"></a>关联本地工程和远端工程</h2><p>  打开hexo本地工程，找到”_config.yml”文件，找到deploy一栏<br><img src="http://og407vfi8.bkt.clouddn.com/15227381369513.jpg" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: https://github.com/zksyp/zksyp.github.io.git</div><div class="line">  branch: master</div><div class="line">  这里有几点需要注意： </div><div class="line">- 每个参数，冒号后面，必须要有一个空格！！！！！！ </div><div class="line">- repository 参数需要 ssh 的clone地址 </div><div class="line">- branch 分支需要是master分支</div></pre></td></tr></table></figure></p>
+<p>  配置好以上参数之后，cmd到hexo工程目录，输入以下命令<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo d -g</div></pre></td></tr></table></figure></p>
+<p>  到这里你的本地仓库与远端仓库就关联起来了。</p>
+<h2 id="绑定域名-选做"><a href="#绑定域名-选做" class="headerlink" title="绑定域名(选做)"></a>绑定域名(选做)</h2><p>  域名我是从阿里云上买的。</p>
+<ol>
+<li><p>在控制台进到你所购买的域名管理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](media/15227404552296.jpg)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol>
+<li><p>选择域名解析</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">  设置相关参数:</div><div class="line">![](media/15227404716309.jpg)</div><div class="line"></div><div class="line">其中A记录指向的ip是GitHub Pages提供的ip，CNAME的&quot;记录值&quot;就是个人的GitHub Pages地址。</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol>
+<li><p>在个人的GitHub Pages里添加CNAME文件，”xxx.com”是你注册的域名</p>
+<p>这样在网页中输入你注册的域名就能跳转到你的个人博客了。</p>
+<h3 id="经过以上几个步骤，你就已经搭建好了属于你自己的个人博客了，快去记录下自己的想法吧。"><a href="#经过以上几个步骤，你就已经搭建好了属于你自己的个人博客了，快去记录下自己的想法吧。" class="headerlink" title="经过以上几个步骤，你就已经搭建好了属于你自己的个人博客了，快去记录下自己的想法吧。"></a>经过以上几个步骤，你就已经搭建好了属于你自己的个人博客了，快去记录下自己的想法吧。</h3></li>
+</ol>
+
+            
+        </div>
+    
 </div>
 
 
+                
+                    <!-- Paradox Post Info -->
+                    
                 
 
                 <!-- Post Comments -->
@@ -354,7 +521,7 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2016/10/20/2018-02-24-1/" id="post_nav-newer" class="prev-content">
+        <a href="/2016/10/30/2016-11-07-1/" id="post_nav-newer" class="prev-content">
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
                 <i class="material-icons">arrow_back</i>
             </button>
@@ -368,7 +535,7 @@
 
     <!-- Next Nav -->
     
-        <a href="/2016/09/20/2018-02-24/" id="post_nav-older" class="next-content">
+        <a href="/2016/10/20/2018-02-24-1/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">

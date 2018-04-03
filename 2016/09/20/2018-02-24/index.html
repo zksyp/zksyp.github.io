@@ -85,6 +85,10 @@
     
 
     
+        
+            <link rel="stylesheet" href="/css/fontawesome.min.css">
+        
+    
 
     <!-- Config CSS -->
 
@@ -300,8 +304,101 @@
 
 
     
-        <body id="scheme-Nexus" class="lazy">
+        <body id="scheme-Isolation" class="lazy">
             <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+                    <!-- Isolation Header -->
+                    <header class="header">
+    <div class="header-wrapper">
+        <!-- Header Copyright -->
+        <div class="header-copyright">
+            <div class="header-site">
+                ©&nbsp;
+                <script type="text/javascript">
+                    var fd = new Date();
+                    document.write(fd.getFullYear());
+                </script>
+                &nbsp;Zksyp的博客
+            </div>
+            <!--
+            I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+            It will not impact the appearance and can give developers a lot of support :)
+
+            很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+            它不会影响美观并可以给开发者很大的支持。 :)
+            -->
+            <div>
+                Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a>
+                <br>
+                Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a>
+            </div>
+        </div>
+
+        <!-- Header Title -->
+        <span class="header-title header-item">
+            <a href="/" title="Zksyp的博客">
+                Zksyp的博客
+            </a>
+        </span>
+
+        <p class="header-slogan header-item">
+        
+            
+                Love is a touch but yet not a touch
+            
+        
+        </p>
+
+        <!-- Header Nav -->
+        <nav class="header-nav header-item">
+            <span class="header-nav-item">
+                <a href="/" title="Home">
+                    <span>主页</span>
+                </a>
+            </span>
+
+            <!-- Pages  -->
+            
+            
+        </nav>
+
+        <!-- Header SNS -->
+        <div class="header-item header-sns_list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/zksyp" target="_blank">
+            <i class="fa fa-github fa-lg" aria-hidden="true"></i>
+        </a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Telegram -->
+    
+</div>
+
+    </div>
+</header>
+
                 
 
                 <!-- Main Container -->
@@ -330,6 +427,21 @@
                 
 
 
+    <!-- Isolation Post Header -->
+    <!-- Post thumbnail -->
+    
+        <!-- Post Header Info -->
+        <div class="post-header_info without-thumbnail">
+            <!-- Author Avatar & Name -->
+            <img src="/img/avatar.png" class="avatar-img" width="44px" height="44px" alt="Zksyp's avatar">
+            <span class="name-span">Zksyp</span>
+        </div>
+
+        <!-- Null Thumbnail -->
+        <div class="post_thumbnail-null">
+    
+        </div>
+
 
 
                 
@@ -339,9 +451,39 @@
     
 
     
+        <div class="post-content_wrapper">
+            <p class="post-title">
+                Activity的生命周期学习小结
+            </p>
+            <p>这里是对Activity生命周期的学习小结。<br><a id="more"></a></p>
+<h2 id="常规的Activity的生命周期的流程："><a href="#常规的Activity的生命周期的流程：" class="headerlink" title="常规的Activity的生命周期的流程："></a>常规的Activity的生命周期的流程：</h2><p><img src="http://og407vfi8.bkt.clouddn.com/15194384966636.jpg" alt=""></p>
+<h2 id="特殊情况下Activity的生命周期："><a href="#特殊情况下Activity的生命周期：" class="headerlink" title="特殊情况下Activity的生命周期："></a>特殊情况下Activity的生命周期：</h2><ol>
+<li>横竖屏的切换</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">系统会调用OnSaveInstance()方法用来保存当前Activity的状态和数据，和OnPause()之间没有特定的调用的时序关系，只在OnStop()之前调用，之后Activity会调用OnDestory()销毁。在屏幕恢复之后，调用OnCreate()或者OnRestoreInstance()方法来恢复Activity。完整的生命周期流程如下：</div><div class="line"></div><div class="line">OnPause() -&gt; OnSaveInstance() -&gt; OnStop() -&gt; OnDestory() -&gt; OnCreate() -&gt; OnRestoreInstance() -&gt; OnResume()</div></pre></td></tr></table></figure>
+<p>若在Manifest中设置</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android:configChanges = <span class="string">"orientation| screenSize"</span></div></pre></td></tr></table></figure>
+<p>则在横竖屏切换时，Activity并不会销毁和重建，会回调以下方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onConfigurationChanged</span><span class="params">(Configuration newConfig)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onConfigurationChanged(newConfig);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>Activity被杀死<br>Activity优先级的划分和下面的Activity的三种运行状态是对应的。</li>
+</ol>
+<ul>
+<li>前台Activity——正在和用户交互的Activity，优先级最高。</li>
+<li>可见但非前台Activity——比如Activity中弹出了一个对话框，导致Activity可见但是位于后台无法和用户交互。</li>
+<li>后台Activity——已经被暂停的Activity，比如执行了onStop，优先级最低。</li>
+</ul>
+<p>当系统内存不足时，会按照上述优先级从低到高去杀死目标Activity所在的进程。我们在平常使用手机时，能经常感受到这一现象。这种情况下数据存储和恢复过程和上述情况一致，生命周期情况也一样。</p>
+
+            
+        </div>
+    
 </div>
 
 
+                
+                    <!-- Paradox Post Info -->
+                    
                 
 
                 <!-- Post Comments -->
@@ -354,7 +496,7 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2016/10/20/2018-04-03/" id="post_nav-newer" class="prev-content">
+        <a href="/2016/10/20/2018-02-24-1/" id="post_nav-newer" class="prev-content">
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
                 <i class="material-icons">arrow_back</i>
             </button>
