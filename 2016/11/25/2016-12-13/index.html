@@ -85,10 +85,6 @@
     
 
     
-        
-            <link rel="stylesheet" href="/css/fontawesome.min.css">
-        
-    
 
     <!-- Config CSS -->
 
@@ -304,101 +300,8 @@
 
 
     
-        <body id="scheme-Isolation" class="lazy">
+        <body id="scheme-Nexus" class="lazy">
             <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
-                
-                    <!-- Isolation Header -->
-                    <header class="header">
-    <div class="header-wrapper">
-        <!-- Header Copyright -->
-        <div class="header-copyright">
-            <div class="header-site">
-                ©&nbsp;
-                <script type="text/javascript">
-                    var fd = new Date();
-                    document.write(fd.getFullYear());
-                </script>
-                &nbsp;Zksyp的博客
-            </div>
-            <!--
-            I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright.
-            It will not impact the appearance and can give developers a lot of support :)
-
-            很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
-            它不会影响美观并可以给开发者很大的支持。 :)
-            -->
-            <div>
-                Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a>
-                <br>
-                Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a>
-            </div>
-        </div>
-
-        <!-- Header Title -->
-        <span class="header-title header-item">
-            <a href="/" title="Zksyp的博客">
-                Zksyp的博客
-            </a>
-        </span>
-
-        <p class="header-slogan header-item">
-        
-            
-                Love is a touch but yet not a touch
-            
-        
-        </p>
-
-        <!-- Header Nav -->
-        <nav class="header-nav header-item">
-            <span class="header-nav-item">
-                <a href="/" title="Home">
-                    <span>主页</span>
-                </a>
-            </span>
-
-            <!-- Pages  -->
-            
-            
-        </nav>
-
-        <!-- Header SNS -->
-        <div class="header-item header-sns_list">
-    <!-- Twitter -->
-    
-
-    <!-- Facebook -->
-    
-
-    <!-- Google + -->
-    
-
-    <!-- Weibo -->
-    
-
-    <!-- Instagram -->
-    
-
-    <!-- Tumblr -->
-    
-
-    <!-- Github -->
-    
-        <a href="https://github.com/zksyp" target="_blank">
-            <i class="fa fa-github fa-lg" aria-hidden="true"></i>
-        </a>
-    
-
-    <!-- LinkedIn -->
-    
-
-    <!-- Telegram -->
-    
-</div>
-
-    </div>
-</header>
-
                 
 
                 <!-- Main Container -->
@@ -427,21 +330,6 @@
                 
 
 
-    <!-- Isolation Post Header -->
-    <!-- Post thumbnail -->
-    
-        <!-- Post Header Info -->
-        <div class="post-header_info without-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/avatar.png" class="avatar-img" width="44px" height="44px" alt="Zksyp's avatar">
-            <span class="name-span">Zksyp</span>
-        </div>
-
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
-    
-        </div>
-
 
 
                 
@@ -451,34 +339,9 @@
     
 
     
-        <div class="post-content_wrapper">
-            <p class="post-title">
-                Java设计模式——观察者模式
-            </p>
-            <h2 id="RxJava带来的思考"><a href="#RxJava带来的思考" class="headerlink" title="RxJava带来的思考"></a>RxJava带来的思考</h2><p>在RxJava的学习当中，RxJava使用的是观察者模式，这里就简单的介绍一下观察者模式。</p>
-<a id="more"></a>
-<h2 id="什么是观察者模式"><a href="#什么是观察者模式" class="headerlink" title="什么是观察者模式"></a>什么是观察者模式</h2><p>观察者模式中主要有两种角色，观察者和被观察者。<br>类似于订阅报纸，你的角色是订阅者(Observer)，出版商是发行报纸的一方，他的角色就是被订阅者(Subject)，而这两者的共同组合就是观察者模式。<br>观察者模式数据流转：被观察者也就是被订阅者的数据发生了更新动作，所有订阅了的观察者都能够收到这个更新，进而进行下一步操作。<br>就如订阅报纸，出版商的新闻信息一旦更新，出版了最新的报纸，每个订阅了报纸的用户都能够收到最新信息的报纸，而没有订阅的人则收不到。<br>观察者模式大概就是这个意思。</p>
-<!-- more -->
-<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p>1）当一个对象变化的时候，需要同时改变其他对象，但预先不知道具体有多少个对象需要改变，这个时候使用观察者模式就好，只需订阅一下。<br>2）当一个对象改变的时候，必须告知其他对象，而这个对象是不能唯一指定，是可以变化的，也就是，这两个对象不希望是紧密耦合的。<br>3）当一个抽象模型有两个方面, 其中一个方面依赖于另一方面。将这二者封装在独立的对象中以使它们可以各自独立地改变和复用。</p>
-<h2 id="实现逻辑过程"><a href="#实现逻辑过程" class="headerlink" title="实现逻辑过程"></a>实现逻辑过程</h2><p>某个对象A,B想成为某个对象C的观察者，于是告知被订阅者C发起订阅。订阅操作过后，A,B成为了C的观察者。之后C发生了数据更新操作，于是C就告知了自己的观察者A,B发生了数据跟新，于是A,B收到后都相应的回复了。<br>某天，A决定不再成为观察者，于是A告知C发起取消订阅，取消订阅操作完成后，A就不再是C的观察者了。之后C发生了数据跟新操作，于是只有C的观察者B收到了数据跟新消息，而A并没有收到。<br>当然，若之后A还想重新成为观察者只需要重新订阅即可，B也可以通过取消订阅操作，使其不再成为C的观察者。</p>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by kaishen on 16/12/13.</div><div class="line"> * 抽象 观察者／订阅者</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Observer</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by kaishen on 16/12/13.</div><div class="line"> * 抽象 被观察者／主题</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Subscriber</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addObserver</span><span class="params">(Observer observer)</span></span>;<span class="comment">//发起订阅</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">removeObserver</span><span class="params">(Observer observer)</span></span>;<span class="comment">//取消订阅</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyObserver</span><span class="params">()</span></span>;<span class="comment">//通知观察者</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by kaishen on 16/12/13.</div><div class="line"> * 实例化 观察者 A</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ObserverA</span> <span class="keyword">implements</span> <span class="title">Observer</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"A已收到数据更新"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by kaishen on 16/12/13.</div><div class="line"> * 实例化 观察者 B</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ObserverB</span> <span class="keyword">implements</span> <span class="title">Observer</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"B已收到数据更新"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by kaishen on 16/12/13.</div><div class="line"> * 实例化 被观察者A</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SubscriberA</span> <span class="keyword">implements</span> <span class="title">Subscriber</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> List&lt;Observer&gt; observerList = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addObserver</span><span class="params">(Observer observer)</span> </span>&#123;</div><div class="line">        observerList.add(observer);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">removeObserver</span><span class="params">(Observer observer)</span> </span>&#123;</div><div class="line">        observerList.remove(observer);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyObserver</span><span class="params">()</span> </span>&#123;</div><div class="line">        observerList.forEach(Observer::update);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by kaishen on 16/12/13.</div><div class="line"> * 测试类</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">	<span class="comment">// write your code here</span></div><div class="line">        ObserverA a = <span class="keyword">new</span> ObserverA();</div><div class="line">        ObserverB b = <span class="keyword">new</span> ObserverB();</div><div class="line">        SubscriberA subscriberA = <span class="keyword">new</span> SubscriberA();</div><div class="line"></div><div class="line">        System.out.println(<span class="string">"第一次变化"</span>);</div><div class="line">        subscriberA.addObserver(a);</div><div class="line">        subscriberA.addObserver(b);</div><div class="line">        subscriberA.notifyObserver();</div><div class="line"></div><div class="line">        System.out.println(<span class="string">"\n第二次变化"</span>);</div><div class="line">        subscriberA.removeObserver(a);</div><div class="line">        subscriberA.notifyObserver();</div><div class="line"></div><div class="line">        System.out.println(<span class="string">"\n第三次变化"</span>);</div><div class="line">        subscriberA.removeObserver(b);</div><div class="line">        subscriberA.addObserver(a);</div><div class="line">        subscriberA.notifyObserver();</div><div class="line"></div><div class="line">        System.out.println(<span class="string">"\n第四次变化"</span>);</div><div class="line">        subscriberA.removeObserver(a);</div><div class="line">        subscriberA.notifyObserver();</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>运行结果：<br><img src="http://og407vfi8.bkt.clouddn.com/14816169269167.jpg" alt=""></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>上面只是简单的介绍了被观察者变化后，告知观察者。复杂的场景中，被观察者可以暴露相应的接口，把变化的数据传给观察者。</p>
-
-            
-        </div>
-    
 </div>
 
 
-                
-                    <!-- Paradox Post Info -->
-                    
                 
 
                 <!-- Post Comments -->

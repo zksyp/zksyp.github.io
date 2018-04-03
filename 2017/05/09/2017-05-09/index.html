@@ -85,10 +85,6 @@
     
 
     
-        
-            <link rel="stylesheet" href="/css/fontawesome.min.css">
-        
-    
 
     <!-- Config CSS -->
 
@@ -304,101 +300,8 @@
 
 
     
-        <body id="scheme-Isolation" class="lazy">
+        <body id="scheme-Nexus" class="lazy">
             <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
-                
-                    <!-- Isolation Header -->
-                    <header class="header">
-    <div class="header-wrapper">
-        <!-- Header Copyright -->
-        <div class="header-copyright">
-            <div class="header-site">
-                ©&nbsp;
-                <script type="text/javascript">
-                    var fd = new Date();
-                    document.write(fd.getFullYear());
-                </script>
-                &nbsp;Zksyp的博客
-            </div>
-            <!--
-            I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright.
-            It will not impact the appearance and can give developers a lot of support :)
-
-            很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
-            它不会影响美观并可以给开发者很大的支持。 :)
-            -->
-            <div>
-                Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a>
-                <br>
-                Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a>
-            </div>
-        </div>
-
-        <!-- Header Title -->
-        <span class="header-title header-item">
-            <a href="/" title="Zksyp的博客">
-                Zksyp的博客
-            </a>
-        </span>
-
-        <p class="header-slogan header-item">
-        
-            
-                Love is a touch but yet not a touch
-            
-        
-        </p>
-
-        <!-- Header Nav -->
-        <nav class="header-nav header-item">
-            <span class="header-nav-item">
-                <a href="/" title="Home">
-                    <span>主页</span>
-                </a>
-            </span>
-
-            <!-- Pages  -->
-            
-            
-        </nav>
-
-        <!-- Header SNS -->
-        <div class="header-item header-sns_list">
-    <!-- Twitter -->
-    
-
-    <!-- Facebook -->
-    
-
-    <!-- Google + -->
-    
-
-    <!-- Weibo -->
-    
-
-    <!-- Instagram -->
-    
-
-    <!-- Tumblr -->
-    
-
-    <!-- Github -->
-    
-        <a href="https://github.com/zksyp" target="_blank">
-            <i class="fa fa-github fa-lg" aria-hidden="true"></i>
-        </a>
-    
-
-    <!-- LinkedIn -->
-    
-
-    <!-- Telegram -->
-    
-</div>
-
-    </div>
-</header>
-
                 
 
                 <!-- Main Container -->
@@ -427,21 +330,6 @@
                 
 
 
-    <!-- Isolation Post Header -->
-    <!-- Post thumbnail -->
-    
-        <!-- Post Header Info -->
-        <div class="post-header_info without-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/avatar.png" class="avatar-img" width="44px" height="44px" alt="Zksyp's avatar">
-            <span class="name-span">Zksyp</span>
-        </div>
-
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
-    
-        </div>
-
 
 
                 
@@ -451,49 +339,9 @@
     
 
     
-        <div class="post-content_wrapper">
-            <p class="post-title">
-                Java注解——注解基础
-            </p>
-            <h2 id="注解介绍"><a href="#注解介绍" class="headerlink" title="注解介绍"></a>注解介绍</h2><p>简单点说java注解是一种代码级别的说明，可以声明在包、类、字段、方法、局部变量、方法参数等的前面，对这些元素进行说明和注释。<br>Java定义了一套注解，截止到java8，这套注解一共有10个，5个在java.lang中，5个在java.lang.annotation中。</p>
-<a id="more"></a>
-<h2 id="作用在代码的注解是"><a href="#作用在代码的注解是" class="headerlink" title="作用在代码的注解是"></a>作用在代码的注解是</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">* @Override - 检查该方法是否是重载方法。如果发现其父类，或者是引用的接口中并没有该方法时，会报编译错误。</div><div class="line">* @Deprecated - 标记过时方法。如果使用该方法，会报编译警告。</div><div class="line">* @SuppressWarnings - 指示编译器去忽略注解中声明的警告。</div></pre></td></tr></table></figure>
-<h2 id="作用在其他注解的注解-或者说-元注解-是"><a href="#作用在其他注解的注解-或者说-元注解-是" class="headerlink" title="作用在其他注解的注解(或者说 元注解)是:"></a>作用在其他注解的注解(或者说 元注解)是:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">* @Retention - 标识这个注解怎么保存，是只在代码中，还是编入class文件中，或者是在运行时可以通过反射访问。</div><div class="line">* @Documented - 标记这些注解是否包含在用户文档中。</div><div class="line">* @Target - 标记这个注解应该是哪种 Java 成员。</div><div class="line">* @Inherited - 标记这个注解是继承于哪个注解类(默认 注解并没有继承于任何子类)</div></pre></td></tr></table></figure>
-<h2 id="从-Java-7-开始，额外添加了-3-个注解"><a href="#从-Java-7-开始，额外添加了-3-个注解" class="headerlink" title="从 Java 7 开始，额外添加了 3 个注解:"></a>从 Java 7 开始，额外添加了 3 个注解:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">* @SafeVarargs - Java 7 开始支持，忽略任何使用参数为泛型变量的方法或构造函数调用产生的警告。</div><div class="line">* @FunctionalInterface - Java 8 开始支持，标识一个匿名函数或函数式接口。</div><div class="line">* @Repeatable - Java 8 开始支持，标识某注解可以在同一个声明上使用多次。</div></pre></td></tr></table></figure>
-<p><a href="https://zh.wikipedia.org/wiki/Java%E6%B3%A8%E8%A7%A3" target="_blank" rel="external">维基百科—-Java注解</a></p>
-<h2 id="元注解"><a href="#元注解" class="headerlink" title="元注解"></a>元注解</h2><p>这里我们着重讲一下元注解，因为它对我们之后讲的自定义注解有很大关系。从上面的简介中我们看到，它的定义是作用在其他注解上的注解。这是什么意思呢？我们举个例子，查看<code>@Override</code>注解的源码：<br><img src="http://og407vfi8.bkt.clouddn.com/14942961999479.jpg" alt=""><br>发现上面又有两个注解，这就是元注解，用来定义注解的注解，作用就是用来定义注解的作用范围，使用的范围。</p>
-<p>元注解一共有四个，下面我们来分别介绍一下。</p>
-<h3 id="Target"><a href="#Target" class="headerlink" title="@Target"></a>@Target</h3><p>它是用来指明当前注解所修饰的目标，使用时后面可带参数，也可不带参数，参数不能重复出现，所带参数有：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">* TYPE：用于描述类，接口(包括注解类型)，或者枚举类型声明</div><div class="line">* FILED：用于描述域或称为成员变量(包括枚举常量)</div><div class="line">* METHOD：用于描述方法声明</div><div class="line">* PARAMETER：用于描述参数声明</div><div class="line">* CONSTRUCTOR：用于描述构造方法声明</div><div class="line">* LOCAL_VARIABLE：用于描述局部变量</div><div class="line">* ANNOTATION_TYPE：用于描述注解声明</div><div class="line">* PACKAGE：用于描述包声明</div></pre></td></tr></table></figure>
-<p>示例：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Target</span>(ElementType.FIELD)</div><div class="line"><span class="keyword">public</span> <span class="meta">@interface</span> AnnotationTest &#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>表示注解AnnotationTest用于注解类的成员变量。</p>
-<h3 id="Retention"><a href="#Retention" class="headerlink" title="@Retention"></a>@Retention</h3><p>它是用来指明被作用的注解生命周期，比如某些注解仅出现在源码中，而被编译器丢弃，而另一些则被编译在class文件中，编译在class文件中的注解可能会被虚拟机忽略，但另一些在class被装载时将被读取。<br>需要注意的是：它只能作用于注解类型，不能作用于某注解类型中的成员变量。<br>同样的，它也能携带参数。包括：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">* SOURCE：在源文件中有效，会被编译器所丢弃。</div><div class="line">* CLASS：在class文件中有效，即编译器会把该注释保存在class文件中，但在运行时VM将不会保留。</div><div class="line">* RUNTIME：在运行时有效，即编译器会把该注释保存在class文件中，在运行时VM将保留注释，所以可以反射性读取。</div><div class="line">* 需要注意的是：以上三种类型是一种包含关系，RUNTIME ⊇ CLASS ⊇ SOURCE,即设为RUNTIME时，在源码阶段或者CLASS阶段也是能够处理的。</div></pre></td></tr></table></figure>
-<p>示例：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Target</span>(ElementType.FIELD)</div><div class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</div><div class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Test &#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">name</span><span class="params">()</span> <span class="keyword">default</span> "fieldName"</span>;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<p>表示Test注解用来注解类的成员变量，并且该注解会一直保存到运行时。</p>
-<h3 id="Documented"><a href="#Documented" class="headerlink" title="@Documented"></a>@Documented</h3><p>它是用来指明生成javadoc文档的时候将该注解也写入到文档中。</p>
-<h3 id="Inherited"><a href="#Inherited" class="headerlink" title="@Inherited"></a>@Inherited</h3><p>在我们自定义注解的时候，把自定义的直接标注在父类上，但是这个注解并不会被它的子类所继承，于是我们可以给我们的自定义注解标注一个@Inherited注解来实现注解继承。</p>
-<p>需要注意的是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">· 如果父类的注解是定义在类上面，那么子类是可以继承过来的</div><div class="line">· 如果父类的注解是定义在方法上面的，那么子类也是可以继承过来的，但如果子类重写了定义了注解的方法，那么子类是无法继承该方法的注解的。</div></pre></td></tr></table></figure>
-<h2 id="自定义注解"><a href="#自定义注解" class="headerlink" title="自定义注解"></a>自定义注解</h2><p>通常格式就是使用<code>@Interface</code>自定义注解，这里的<code>@Interface</code>并不是接口的意思，它是一种关键字的存在，类似于申明类用的<code>class</code>,申明之后它自动继承了java.lang.Annotation接口，由编译程序自动完成其他细节。<br>格式：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="meta">@Interface</span> 注解名&#123;定义体&#125;</div></pre></td></tr></table></figure>
-<p>定义体中的参数支持：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">1. 所有基本数据类型(int,float,double,long,byte,char,short)</div><div class="line">2. String 类型</div><div class="line">3. Class 类型</div><div class="line">4. enum 类型</div><div class="line">5. Annotation 类型</div><div class="line">6. 以上所有类型的数组</div></pre></td></tr></table></figure>
-<p>参数设定规则：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1. 只能用public或默认(default)这两个访问权限修饰</div><div class="line">2. 只能用上述所列的数据类型</div><div class="line">3. 如果只有一个数据成员，最好把参数名称设为&quot;value&quot;，后面加小括号</div><div class="line">4. 可以使用default为每一个参数设置一个默认值，注解元素必须有确认的值，要么在定义注解的默认值中指定，要么在使用注解时指定，基本数据类型的值不能为null。因此常用空字符串或0作为默认值。</div></pre></td></tr></table></figure>
-<p>自定义注解一般按照处理的时态来区分，主要分为<a href="http://zksyp.me/2017/05/18/2017-05-10/" target="_blank" rel="external">源码级自定义注解,编译时自定义注解和运行时自定义注解。</a></p>
-
-            
-        </div>
-    
 </div>
 
 
-                
-                    <!-- Paradox Post Info -->
-                    
                 
 
                 <!-- Post Comments -->
